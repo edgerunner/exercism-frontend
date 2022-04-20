@@ -9,13 +9,18 @@ export default {
   component: Avatar,
 };
 
-export const Default = () => (
-  <Avatar
-    src="https://avatars1.githubusercontent.com/u/1234?s=460&v=4"
-    handle="handle"
-  />
-);
+const Template = (args) => <Avatar {...args} />;
 
-export const WithHandle = () => <Avatar handle="handle" />;
+export const WithImage = Template.bind({});
+WithImage.args = {
+  src: "https://avatars0.githubusercontent.com/u/1234?s=460&v=4",
+  handle: "johndoe",
+};
 
-export const AllUnknown = () => <Avatar />;
+export const HandleOnly = Template.bind({});
+HandleOnly.args = {
+  handle: "johndoe",
+};
+
+export const NoData = Template.bind({});
+NoData.args = {};
