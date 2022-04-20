@@ -1,0 +1,15 @@
+{
+  "name": "exercism-frontend",
+  "version": "1.0.0",
+  "description": "Frontend developer challenge for Exercism",
+  "main": "index.html",
+  "repository": "https://github.com/edgerunner/exercism-frontend.git",
+  "author": "Mert Torun <mert@merttorun.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
+  },
+  "packageManager": "yarn@3.2.0"
+}
