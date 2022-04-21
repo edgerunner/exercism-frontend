@@ -13,8 +13,8 @@ div.Avatar {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: silver;
-    color: white;
+    background-color: var(--label-tertiary-color);
+    color: var(--highlight-secondary-background);
     font-size: 36px;
     font-weight: 700;
 }
