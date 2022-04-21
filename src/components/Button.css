@@ -1,0 +1,25 @@
+button.Button {
+    display: block;
+    box-sizing: border-box;
+    border: solid 1px var(--border-color);
+    padding: 8px 16px;
+    border-radius: 5px;
+    height: 40px;
+    min-width: 100px;
+    background-color: var(--background);
+
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    color: var(--label-secondary-color);
+
+    box-shadow: 0 1px 0 1px #CBC9D999;
+}
+
+button.Button:disabled {
+    box-shadow: none;
+    background-color: var(--disabled-background);
+    color: var(--label-tertiary-color);
+}
