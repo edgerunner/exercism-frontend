@@ -73,7 +73,12 @@ export default {
   },
 };
 
-const Template = (args) => <TrackIcon {...args} />;
+const Template = ({ track, size }) => (
+  <TrackIcon
+    src={`https://dg8krxphbh767.cloudfront.net/tracks/${track}.svg`}
+    size={size}
+  />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {
