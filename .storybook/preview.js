@@ -5,7 +5,7 @@ export const parameters = {
   controls: {
     matchers: {
       color: /(background|color)$/i,
-      date: /[dD]ate$/,
+      date: /[dD]ate$|_at$/,
     },
   },
 };

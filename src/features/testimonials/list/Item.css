@@ -1,0 +1,65 @@
+article.Testimonial {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    height: 64px;
+    background: var(--background);
+    padding-inline: 16px;
+    cursor: pointer;
+    transition: 200ms ease background-color;
+}
+
+article.Testimonial:hover {
+    background: var(--highlight-background);
+}
+
+article.Testimonial header {
+    display: flex;
+    flex-direction: column;
+}
+
+article.Testimonial header :is(h5, h6) {
+    margin: 0;
+    white-space: nowrap;
+}
+
+article.Testimonial header h5 {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--label-color);
+    text-transform: capitalize;
+}
+
+article.Testimonial header h6 {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--label-secondary-color);
+}
+
+article.Testimonial p {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    overflow: hidden;
+    padding: 0 2em;
+    box-sizing: border-box;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+article.Testimonial time {
+    white-space: nowrap;
+    font-size: 14px;
+    color: var(--label-secondary-color);
+    font-weight: 500;
+}
+
+article.Testimonial::after {
+    content: url(./Item-arrow.svg);
+    color: var(--label-secondary-color);
+    display: block;
+    width: 16px;
+    height: 18px;
+    text-align: center;
+}
