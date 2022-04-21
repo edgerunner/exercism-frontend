@@ -16,12 +16,16 @@ button.Button {
     color: var(--label-secondary-color);
 
     box-shadow: 0 1px 0 1px #CBC9D999;
+
+    cursor: pointer;
 }
 
 button.Button:disabled {
     box-shadow: none;
     background-color: var(--disabled-background);
     color: var(--label-tertiary-color);
+
+    cursor: not-allowed;
 }
 
 
