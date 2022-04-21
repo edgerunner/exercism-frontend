@@ -23,3 +23,26 @@ button.Button:disabled {
     background-color: var(--disabled-background);
     color: var(--label-tertiary-color);
 }
+
+
+button.Button.left::before, 
+button.Button.right::after {
+    content: url(./Button-arrow.svg);
+    width: 14px;
+    height: 12px;
+    display: inline-block;
+}
+
+button.Button.right::after {
+    margin-left: 4px;
+}
+
+button.Button.left::before {
+    transform: scaleX(-1);
+    margin-right: 4px;
+}
+
+button.Button.left:disabled::before,
+button.Button.right:disabled::after {
+    opacity: 0.7;
+}
