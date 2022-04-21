@@ -1,0 +1,8 @@
+section.Testimonials {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1px;
+    background-color: var(--list-background);
+}
+

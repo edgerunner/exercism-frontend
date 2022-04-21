@@ -19,6 +19,7 @@ article.Testimonial > a { display: contents; color: inherit; }
 article.Testimonial header {
     display: flex;
     flex-direction: column;
+    min-width: 300px;
 }
 
 article.Testimonial header :is(h5, h6) {
@@ -47,7 +48,6 @@ article.Testimonial p {
     padding: 0 2em;
     box-sizing: border-box;
     flex-grow: 1;
-    flex-shrink: 1;
 }
 
 article.Testimonial time {
