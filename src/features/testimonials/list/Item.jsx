@@ -10,7 +10,11 @@ export default function Item({
   created_at,
 }) {
   return (
-    <article className="Testimonial" id={`testimonial-${id}`}>
+    <article
+      className="Testimonial"
+      id={`testimonial-${id}`}
+      onClick={navigateTo(id, mentor.handle)}
+    >
       <TrackIcon src={track.icon_url} size="small" />
       <Avatar src={mentor.avatar_url} handle={mentor.handle} />
       <header>
@@ -23,4 +27,11 @@ export default function Item({
       <TimeAgo date={new Date(created_at)} />
     </article>
   );
+}
+
+function navigateTo(id, handle) {
+  return () =>
+    window.location.assign(
+      `https://exercism.org/profiles/${handle}/testimonials?uuid=${id}`
+    );
 }
