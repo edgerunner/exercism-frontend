@@ -14,8 +14,6 @@ article.Testimonial:hover {
     background: var(--highlight-background);
 }
 
-article.Testimonial > a { display: contents; color: inherit; }
-
 article.Testimonial header {
     display: flex;
     flex-direction: column;

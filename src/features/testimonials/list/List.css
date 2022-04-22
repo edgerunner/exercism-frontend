@@ -6,3 +6,7 @@ section.Testimonials {
     background-color: var(--list-background);
 }
 
+section.Testimonials > a {
+    color: inherit;
+    text-decoration: inherit;
+}
