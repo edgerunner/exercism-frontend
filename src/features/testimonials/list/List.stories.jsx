@@ -426,3 +426,77 @@ FullPage.args = {
     },
   ],
 };
+
+export const Empty = Template.bind({});
+Empty.args = {
+  testimonials: [],
+};
+
+export const FewItems = Template.bind({});
+FewItems.args = {
+  testimonials: [
+    {
+      id: 22544,
+      track: {
+        slug: "ruby",
+        title: "Ruby",
+        icon_url: "https://dg8krxphbh767.cloudfront.net/tracks/ruby.svg",
+      },
+      exercise: {
+        slug: "microwave",
+        title: "Microwave",
+        icon_url:
+          "https://dg8krxphbh767.cloudfront.net/exercises/microwave.svg",
+      },
+      mentor: {
+        handle: "trystant",
+        avatar_url: "https://avatars0.githubusercontent.com/u/13509",
+      },
+      content:
+        "He offered great feedback including an alternate approach while introducing me to a ruby module/library I'd not heard of before, but will make my life simpler. ",
+      created_at: "2022-01-11T19:39:39.672Z",
+    },
+    {
+      id: 22496,
+      track: {
+        slug: "ruby",
+        title: "Ruby",
+        icon_url: "https://dg8krxphbh767.cloudfront.net/tracks/ruby.svg",
+      },
+      exercise: {
+        slug: "boutique-inventory",
+        title: "Boutique Inventory",
+        icon_url:
+          "https://dg8krxphbh767.cloudfront.net/exercises/boutique-inventory.svg",
+      },
+      mentor: {
+        handle: "thelmalu",
+        avatar_url:
+          "https://dg8krxphbh767.cloudfront.net/placeholders/user-avatar.svg",
+      },
+      content:
+        "Short question, direct answer solved my problem. Excellent mentor.\n",
+      created_at: "2022-01-09T14:55:25.787Z",
+    },
+    {
+      id: 22451,
+      track: {
+        slug: "ruby",
+        title: "Ruby",
+        icon_url: "https://dg8krxphbh767.cloudfront.net/tracks/ruby.svg",
+      },
+      exercise: {
+        slug: "lasagna",
+        title: "Lasagna",
+        icon_url: "https://dg8krxphbh767.cloudfront.net/exercises/lasagna.svg",
+      },
+      mentor: {
+        handle: "shadowsoftheabyss",
+        avatar_url: "https://avatars.githubusercontent.com/u/6292123?v=4",
+      },
+      content:
+        "Great help!  Precise, encouraging when appropriate and helped me with figuring out what my issue was along with giving me ideas to explore. ",
+      created_at: "2022-01-07T03:19:50.284Z",
+    },
+  ],
+};

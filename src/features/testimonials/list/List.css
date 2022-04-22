@@ -4,6 +4,7 @@ section.Testimonials {
     align-items: stretch;
     gap: 1px;
     background-color: var(--list-background);
+    min-height: 640px;
 }
 
 section.Testimonials > a {
