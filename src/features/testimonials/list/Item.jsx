@@ -1,4 +1,4 @@
-import { Avatar, TrackIcon, TimeAgo } from "../../../components";
+import { Avatar, TrackIcon, TimeAgo } from "/src/components";
 import "./Item.css";
 
 export default function Item({

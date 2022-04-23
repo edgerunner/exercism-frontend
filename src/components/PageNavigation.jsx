@@ -1,6 +1,6 @@
 import "./PageNavigation.css";
-import { Pagination } from "../controllers";
-import { Button } from "../components";
+import { Pagination } from "/src/controllers";
+import { Button } from "/src/components";
 
 export default function PageNavigation({ count, current, onPageChange }) {
   return (
