@@ -1,9 +1,9 @@
 import Item from "./Item";
-import "./List.css";
+import "./Items.css";
 
-export default function List({ testimonials }) {
+export default function Items({ testimonials }) {
   return (
-    <section className="Testimonials">
+    <div className="Testimonials">
       {testimonials.map((testimonial) => (
         <a
           key={testimonial.id}
@@ -12,6 +12,6 @@ export default function List({ testimonials }) {
           <Item {...testimonial} />
         </a>
       ))}
-    </section>
+    </div>
   );
 }

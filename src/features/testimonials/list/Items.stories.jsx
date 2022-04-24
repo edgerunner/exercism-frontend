@@ -1,11 +1,11 @@
-import List from "./List";
+import Items from "./Items";
 
 export default {
-  title: "Features/Testimonials/List",
-  component: List,
+  title: "Features/Testimonials/List/Items",
+  component: Items,
 };
 
-const Template = (args) => <List {...args} />;
+const Template = (args) => <Items {...args} />;
 
 export const FullPage = Template.bind({});
 FullPage.args = {

@@ -1,4 +1,4 @@
-section.Testimonials {
+div.Testimonials {
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -7,7 +7,7 @@ section.Testimonials {
     min-height: 640px;
 }
 
-section.Testimonials > a {
+div.Testimonials > a {
     color: inherit;
     text-decoration: inherit;
 }
