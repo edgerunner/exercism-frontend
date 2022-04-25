@@ -29,3 +29,7 @@ menu.Dropdown > li.selected {
 menu.Dropdown > li:hover {
     background-color: var(--highlight-background);
 }
+
+.Dropdown.Wrapper {
+    position: relative;
+}

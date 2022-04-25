@@ -7,8 +7,8 @@ export default {
 
 export function Default() {
   return (
-    <div style={{ position: "relative" }}>
-      <button className="Dropdown-trigger">Dropdown</button>
+    <Dropdown.Wrapper>
+      <button>Dropdown</button>
       <Dropdown>
         <Dropdown.Item data-try={75}>Item 1</Dropdown.Item>
         <Dropdown.Item selected className="extra">
@@ -16,6 +16,6 @@ export function Default() {
         </Dropdown.Item>
         <Dropdown.Item id="third">Item 3</Dropdown.Item>
       </Dropdown>
-    </div>
+    </Dropdown.Wrapper>
   );
 }

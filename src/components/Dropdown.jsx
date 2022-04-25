@@ -1,4 +1,5 @@
 import "./Dropdown.css";
+import React from "react";
 
 export default function Dropdown({ children }) {
   return <menu className="Dropdown">{children}</menu>;
@@ -13,3 +14,21 @@ export function Item({ children, selected, className = "", ...params }) {
 }
 
 Dropdown.Item = Item;
+
+export function Wrapper({
+  children,
+  element = "div",
+  className = "",
+  ...params
+}) {
+  return React.createElement(
+    element,
+    {
+      className: "Dropdown Wrapper " + className,
+      ...params,
+    },
+    children
+  );
+}
+
+Dropdown.Wrapper = Wrapper;
