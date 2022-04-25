@@ -10,9 +10,11 @@ export function Default() {
     <div style={{ position: "relative" }}>
       <button className="Dropdown-trigger">Dropdown</button>
       <Dropdown>
-        <li>Item 1</li>
-        <li className="selected">Item 2</li>
-        <li>Item 3</li>
+        <Dropdown.Item data-try={75}>Item 1</Dropdown.Item>
+        <Dropdown.Item selected className="extra">
+          Item 2
+        </Dropdown.Item>
+        <Dropdown.Item id="third">Item 3</Dropdown.Item>
       </Dropdown>
     </div>
   );

@@ -19,6 +19,7 @@ menu.Dropdown > li {
     cursor: pointer;
     width: 100%;
     box-sizing: border-box;
+    transition: 0.2s ease-in-out background-color;
 }
 
 menu.Dropdown > li.selected {
