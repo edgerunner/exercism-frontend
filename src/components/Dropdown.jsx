@@ -1,8 +1,12 @@
 import "./Dropdown.css";
 import React from "react";
 
-export default function Dropdown({ children }) {
-  return <menu className="Dropdown">{children}</menu>;
+export function Menu({ children, className = "", ...params }) {
+  return (
+    <menu className={"Dropdown " + className} {...params}>
+      {children}
+    </menu>
+  );
 }
 
 export function Item({ children, selected, className = "", ...params }) {
@@ -12,8 +16,6 @@ export function Item({ children, selected, className = "", ...params }) {
   const combined = classes ? { className: classes, ...params } : params;
   return <li {...combined}>{children}</li>;
 }
-
-Dropdown.Item = Item;
 
 export function Wrapper({
   children,
@@ -31,4 +33,4 @@ export function Wrapper({
   );
 }
 
-Dropdown.Wrapper = Wrapper;
+export default { Menu, Item, Wrapper };
