@@ -1,0 +1,30 @@
+menu.Dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    background: var(--background);
+    box-shadow: 0 4px 42px #4f72cd26, 0px 0 4px #4f72cd26;
+    border-radius: 8px;
+    margin: 0;
+}
+
+menu.Dropdown > li {
+    list-style: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+menu.Dropdown > li.selected {
+    background-color: var(--element-background);
+}
+
+menu.Dropdown > li:hover {
+    background-color: var(--highlight-background);
+}
