@@ -13,6 +13,10 @@ menu.Dropdown {
 }
 
 menu.Dropdown > li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
     list-style: none;
     padding: 4px 8px;
     border-radius: 4px;
@@ -28,6 +32,22 @@ menu.Dropdown > li.selected {
 
 menu.Dropdown > li:hover {
     background-color: var(--highlight-background);
+}
+
+menu.Dropdown.radio > li::before {
+    display: block;
+    box-sizing: border-box;
+    height: 24px;
+    aspect-ratio: 1;
+
+    content: "\00a0";
+    border: solid 1px var(--label-secondary-color);
+    border-radius: 50%;
+    background-color: var(--background);
+}
+
+menu.Dropdown.radio > li.selected::before {
+    background-image: radial-gradient(var(--label-color), var(--label-color) 4.5px, transparent 0)
 }
 
 .Dropdown.Wrapper {

@@ -5,11 +5,11 @@ export default {
   component: Dropdown,
 };
 
-export function Default() {
+export function Default({ radio }) {
   return (
     <Dropdown.Wrapper>
       <button>Dropdown</button>
-      <Dropdown.Menu>
+      <Dropdown.Menu radio={radio}>
         <Dropdown.Item data-try={75}>Item 1</Dropdown.Item>
         <Dropdown.Item selected className="extra">
           Item 2
@@ -19,3 +19,6 @@ export function Default() {
     </Dropdown.Wrapper>
   );
 }
+Default.args = {
+  radio: false,
+};

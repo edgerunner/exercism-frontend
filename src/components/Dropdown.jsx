@@ -1,16 +1,19 @@
 import "./Dropdown.css";
 import React from "react";
 
-export function Menu({ children, className = "", ...params }) {
+export function Menu({ children, radio, className = "", ...params }) {
   return (
-    <menu className={"Dropdown " + className} {...params}>
+    <menu
+      className={"Dropdown " + (radio ? "radio" : "") + className}
+      {...params}
+    >
       {children}
     </menu>
   );
 }
 
 export function Item({ children, selected, className = "", ...params }) {
-  const classes = [selected ? "selected" : "", className]
+  const classes = [selected ? "selected" : null, className]
     .filter((x) => x)
     .join(" ");
   const combined = classes ? { className: classes, ...params } : params;

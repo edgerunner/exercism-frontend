@@ -9,10 +9,6 @@ button.TrackSelector {
 }
 
 .TrackSelector li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
     height: 58px;
 }
 

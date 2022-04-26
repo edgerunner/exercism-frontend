@@ -13,7 +13,7 @@ export default function TrackSelector({ tracks, selected, onSelect }) {
       <TrackIcon src={tracks.find((t) => t.slug === selected).icon_url} />
       <ChevronDown />
       {open ? (
-        <Dropdown.Menu>
+        <Dropdown.Menu radio>
           {tracks.map((track) => (
             <Track
               {...track}
