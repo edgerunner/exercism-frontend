@@ -1,11 +1,13 @@
 import List from "./List";
-import fixtures from "./Items.fixtures.js";
+import itemFixtures from "./Items.fixtures.js";
+import trackFixtures from "../TrackSelector/fixtures";
 
 export default {
   title: "Features/Testimonials/List",
   component: List,
   argTypes: {
     onPageChange: { action: "onPageChange" },
+    onTrackChange: { action: "onTrackChange" },
   },
 };
 
@@ -13,14 +15,18 @@ const Template = (args) => <List {...args} />;
 
 export const Full = Template.bind({});
 Full.args = {
-  testimonials: fixtures,
-  current: 1,
-  count: 3,
+  testimonials: itemFixtures,
+  currentPage: 1,
+  pageCount: 3,
+  tracks: trackFixtures,
+  selectedTrack: "ruby",
 };
 
 export const Few = Template.bind({});
 Few.args = {
-  testimonials: fixtures.slice(0, 3),
-  current: 1,
-  count: 1,
+  testimonials: itemFixtures.slice(0, 3),
+  currentPage: 1,
+  pageCount: 1,
+  tracks: trackFixtures,
+  selectedTrack: "ruby",
 };

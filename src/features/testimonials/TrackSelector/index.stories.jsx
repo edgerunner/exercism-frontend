@@ -1,4 +1,5 @@
 import TrackSelector from "./";
+import fixtures from "./fixtures";
 import { useArgs } from "@storybook/client-api";
 
 export default {
@@ -19,37 +20,11 @@ const Template = (args) => {
 export const SomeTracks = Template.bind({});
 SomeTracks.args = {
   selected: "erlang",
-  tracks: [
-    {
-      slug: "ruby",
-      title: "Ruby",
-      icon_url: "https://dg8krxphbh767.cloudfront.net/tracks/ruby.svg",
-      count: 12,
-    },
-    {
-      slug: "erlang",
-      title: "Erlang",
-      icon_url: "https://dg8krxphbh767.cloudfront.net/tracks/erlang.svg",
-      count: 9,
-    },
-    {
-      slug: "elm",
-      title: "Elm",
-      icon_url: "https://dg8krxphbh767.cloudfront.net/tracks/elm.svg",
-      count: 7,
-    },
-  ],
+  tracks: fixtures,
 };
 
 export const OneTrack = Template.bind({});
 OneTrack.args = {
-  selected: "erlang",
-  tracks: [
-    {
-      slug: "elm",
-      title: "Elm",
-      icon_url: "https://dg8krxphbh767.cloudfront.net/tracks/elm.svg",
-      count: 7,
-    },
-  ],
+  selected: "elm",
+  tracks: [fixtures[2]],
 };
