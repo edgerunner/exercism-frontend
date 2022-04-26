@@ -40,3 +40,16 @@ SomeTracks.args = {
     },
   ],
 };
+
+export const OneTrack = Template.bind({});
+OneTrack.args = {
+  selected: "erlang",
+  tracks: [
+    {
+      slug: "elm",
+      title: "Elm",
+      icon_url: "https://dg8krxphbh767.cloudfront.net/tracks/elm.svg",
+      count: 7,
+    },
+  ],
+};

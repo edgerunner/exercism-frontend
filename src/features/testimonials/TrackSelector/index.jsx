@@ -1,20 +1,40 @@
 import "./index.css";
 import { Dropdown, Pill, TrackIcon } from "/src/components";
-import { useState } from "react";
+import { useState, useMemo } from "react";
+
+const ALL_TRACKS_ICON_URL =
+  "https://d24y9kuxp2d7l2.cloudfront.net/assets/icons/all-tracks-5723af830c1df04c577e2aefdc8003f62c4270ec.svg";
 
 export default function TrackSelector({ tracks, selected, onSelect }) {
   const [open, setOpen] = useState(false);
+
+  const tracksWithAll = useMemo(() => {
+    if (tracks.length < 2) return tracks;
+    const allTracks = {
+      slug: "all-tracks",
+      title: "All tracks",
+      icon_url: ALL_TRACKS_ICON_URL,
+      count: tracks.reduce((acc, track) => acc + track.count, 0),
+    };
+    return [allTracks, ...tracks];
+  }, [tracks]);
+
   return (
     <Dropdown.Wrapper
       element="button"
       className="TrackSelector"
       onClick={() => setOpen(!open)}
     >
-      <TrackIcon src={tracks.find((t) => t.slug === selected).icon_url} />
+      <TrackIcon
+        src={
+          tracks.find((t) => t.slug === selected)?.icon_url ||
+          ALL_TRACKS_ICON_URL
+        }
+      />
       <ChevronDown />
       {open ? (
         <Dropdown.Menu radio>
-          {tracks.map((track) => (
+          {tracksWithAll.map((track) => (
             <Track
               {...track}
               selected={track.slug === selected}
