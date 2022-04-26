@@ -5,14 +5,22 @@ import "./List.css";
 
 export default function List({
   testimonials,
-  onPageChange,
-  onTrackChange,
-  currentPage,
   pageCount,
+  currentPage,
+  onPageChange,
   tracks,
   selectedTrack,
+  onTrackChange,
+  search,
+  onSearch,
 }) {
-  const headerProps = { onTrackChange, tracks, selectedTrack };
+  const headerProps = {
+    onTrackChange,
+    tracks,
+    selectedTrack,
+    search,
+    onSearch,
+  };
   const footerProps = { onPageChange, current: currentPage, count: pageCount };
   return (
     <section className="Testimonials">

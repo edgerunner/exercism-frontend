@@ -19,6 +19,15 @@ section.Testimonials > header {
     box-sizing: border-box;
     padding: 16px;
     display: flex;
+    gap: 24px;
     flex: 64px 0 0;
     align-items: center;
+}
+
+section.Testimonials > header > input[type=search] {
+    padding-left: 48px;
+    background-repeat: no-repeat;
+    background-position: 12px center;
+    max-width: 320px;
+    flex-grow: 1;
 }
