@@ -1,4 +1,4 @@
-import "./index.css";
+import "./TrackSelector.css";
 import { Dropdown, Pill, TrackIcon } from "/src/components";
 import { useState, useMemo } from "react";
 

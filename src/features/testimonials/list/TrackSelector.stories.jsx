@@ -1,5 +1,5 @@
-import TrackSelector from "./";
-import fixtures from "./fixtures";
+import TrackSelector from "./TrackSelector";
+import fixtures from "./TrackSelector.fixtures.js";
 import { useArgs } from "@storybook/client-api";
 
 export default {

@@ -1,6 +1,6 @@
 import List from "./List";
 import itemFixtures from "./Items.fixtures.js";
-import trackFixtures from "../TrackSelector/fixtures";
+import trackFixtures from "./TrackSelector.fixtures.js";
 
 export default {
   title: "Features/Testimonials/List",

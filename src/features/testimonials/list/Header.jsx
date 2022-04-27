@@ -1,4 +1,4 @@
-import TrackSelector from "../TrackSelector";
+import TrackSelector from "./TrackSelector";
 import SortSelector from "./SortSelector";
 import { Input } from "/src/components";
 import { useState } from "react";
