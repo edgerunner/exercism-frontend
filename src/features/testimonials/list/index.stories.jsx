@@ -1,4 +1,4 @@
-import List from "./List";
+import List from "./";
 import itemFixtures from "./Items.fixtures.js";
 import trackFixtures from "./TrackSelector.fixtures.js";
 

@@ -1,7 +1,7 @@
 import Header from "./Header";
 import Items from "./Items";
 import Footer from "./Footer";
-import "./List.css";
+import "./index.css";
 
 export default function List({
   testimonials,
