@@ -8,6 +8,7 @@ export default {
   argTypes: {
     onPageChange: { action: "onPageChange" },
     onTrackChange: { action: "onTrackChange" },
+    onSort: { action: "onSort" },
   },
 };
 

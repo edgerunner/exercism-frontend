@@ -13,6 +13,8 @@ export default function List({
   onTrackChange,
   search,
   onSearch,
+  sort,
+  onSort,
 }) {
   const headerProps = {
     onTrackChange,
@@ -20,6 +22,8 @@ export default function List({
     selectedTrack,
     search,
     onSearch,
+    sort,
+    onSort,
   };
   const footerProps = { onPageChange, current: currentPage, count: pageCount };
   return (
