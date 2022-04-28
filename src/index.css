@@ -21,3 +21,26 @@ body {
     font-weight: 400;
     color: var(--text-color);
 }
+
+
+main.page {
+    display: block;
+    width: 100%;
+}
+
+main.page > header:first-of-type {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    padding: 120px 0 64px;
+    background-repeat: no-repeat;
+    background-position: center 48px, center bottom 48px;
+}
+
+main.page > header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--label-color);
+}
