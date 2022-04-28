@@ -1,0 +1,12 @@
+div.Loading {
+    position: absolute;
+    inset: 0;
+
+    background-color: #fbfcfef2;
+    background-image: url("./Loading.spinner.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 64px 64px;
+
+    backdrop-filter: blur(4px) brightness(1.2);
+}
