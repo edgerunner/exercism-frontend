@@ -10,6 +10,7 @@ menu.Dropdown {
     box-shadow: 0 4px 42px #4f72cd26, 0px 0 4px #4f72cd26;
     border-radius: 8px;
     margin: 0;
+    z-index: 100;
 }
 
 menu.Dropdown > li {
