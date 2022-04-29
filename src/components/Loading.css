@@ -1,6 +1,14 @@
 div.Loading {
     position: absolute;
-    inset: 0;
+    
+    width: 64px;
+    height: 64px;
+    left: calc(50% - 32px);
+    top: calc(50% - 32px);
+
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 5px 16px #4f72cd26;
 
     background-color: #fbfcfef2;
     background-image: url("./Loading.spinner.svg");
@@ -10,3 +18,15 @@ div.Loading {
 
     backdrop-filter: blur(4px) brightness(1.2);
 }
+
+.Loading-scope div.Loading {
+    width: unset;
+    height: unset;
+    inset: 0;
+
+    box-shadow: none;
+    border-radius: unset;
+}
+
+/* Utility class for parents of the <Loading> component */
+.Loading-scope { position: relative; }
