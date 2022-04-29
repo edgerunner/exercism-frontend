@@ -10,13 +10,13 @@ div.Loading {
     border-radius: 16px;
     box-shadow: 0 5px 16px #4f72cd26;
 
-    background-color: #fbfcfef2;
+    background-color: #fbfcfebf;
     background-image: url("./Loading.spinner.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 64px 64px;
 
-    backdrop-filter: blur(4px) brightness(1.2);
+    backdrop-filter: blur(6px);
 }
 
 .Loading-scope div.Loading {
