@@ -21,6 +21,7 @@ Full.args = {
   pageCount: 3,
   tracks: trackFixtures,
   selectedTrack: "ruby",
+  loading: false,
 };
 
 export const Few = Template.bind({});
@@ -30,4 +31,5 @@ Few.args = {
   pageCount: 1,
   tracks: trackFixtures,
   selectedTrack: "ruby",
+  loading: false,
 };

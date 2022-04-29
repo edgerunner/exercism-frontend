@@ -15,6 +15,7 @@ export default function List({
   onSearch,
   sort,
   onSort,
+  loading,
 }) {
   const headerProps = {
     onTrackChange,
@@ -29,7 +30,7 @@ export default function List({
   return (
     <section className="Testimonials">
       <Header {...headerProps} />
-      <Items testimonials={testimonials} />
+      <Items {...{ testimonials, loading }} />
       <Footer {...footerProps} />
     </section>
   );

@@ -1,9 +1,10 @@
 import Item from "./Item";
 import "./Items.css";
+import { Loading } from "/src/components";
 
-export default function Items({ testimonials }) {
+export default function Items({ testimonials, loading }) {
   return (
-    <div className="Testimonials">
+    <div className="Testimonials Loading-scope">
       {testimonials.map((testimonial) => (
         <a
           key={testimonial.id}
@@ -12,6 +13,7 @@ export default function Items({ testimonials }) {
           <Item {...testimonial} />
         </a>
       ))}
+      {loading && <Loading />}
     </div>
   );
 }
