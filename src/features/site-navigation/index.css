@@ -1,0 +1,158 @@
+nav#SiteNavigation {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 32px;
+    height: 64px;
+    border-bottom: solid 1px var(--border-color);
+    padding: 0 32px;
+}
+
+nav#SiteNavigation a[id^=nav-] + a[id^=badge-] {
+    margin-left: auto;
+}
+
+nav#SiteNavigation a {
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--label-secondary-color);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+nav#SiteNavigation a#logo-home {
+    color: transparent;
+    background-image: url(./exercism.svg);
+    width: 132px;
+    flex-shrink: 0;
+}
+
+nav#SiteNavigation a[id^="nav-"] {
+    padding-left: 32px;
+    
+}
+
+nav#SiteNavigation a[id^="nav-"].current {
+    padding-left: 64px;
+    color: var(--label-color);
+}
+
+nav#SiteNavigation #nav-dashboard {
+    background-image: url(./dashboard.svg);
+}
+
+nav#SiteNavigation #nav-tracks {
+    background-image: url(./tracks.svg);
+}
+
+nav#SiteNavigation #nav-mentoring {
+    background-image: url(./mentoring.svg);
+}
+
+nav#SiteNavigation #nav-contribute {
+    background-image: url(./contribute.svg);
+}
+
+nav#SiteNavigation a[id^="badge-"] {
+    width:32px;
+    position: relative;
+    background-position-x: center;
+}
+
+nav#SiteNavigation #badge-comments {
+    background-image: url(./comments.svg);
+}
+
+nav#SiteNavigation #badge-updates {
+    background-image: url(./updates.svg);
+}
+
+nav#SiteNavigation a[id^="badge-"].new::after {
+    content: "\00a0";
+    position: absolute;
+    right: 0;
+    top: calc(50% - 16px);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #D85050;
+    border: solid 3px var(--background);
+}
+
+nav#SiteNavigation a[data-new]::after {
+    content: attr(data-new);
+    position: absolute;
+    right: -12px;
+    top: -12px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #D85050;
+    color: var(--background);
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav#SiteNavigation #notifications {
+    position: relative;
+    height: 36px;
+    width: 42px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%),
+    #FFF4E3;
+    background-image: url(./notifications.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0px 4px 24px rgba(156, 130, 38, 0.4);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+nav#SiteNavigation #reputation {
+    position: relative;
+    box-sizing: border-box;
+    height: 42px;
+    padding-left: 48px;
+    padding-right: 15px;
+    border-radius: 21px;
+    background: url(./reputation.svg), linear-gradient(var(--label-color), var(--label-color)),
+        linear-gradient(#c0f, #30f);
+    background-clip: padding-box, padding-box, border-box;
+    background-origin: border-box;
+    color: var(--background);
+    border: solid 3px transparent;
+    background-repeat: no-repeat;
+    background-position-x: 12px, 0, 0;
+    background-position-y: center, 0, 0;
+}
+
+nav#SiteNavigation #reputation.new::after {
+    content: "\00a0";
+    position: absolute;
+    right: -8px;
+    top: -8px;
+    box-sizing: border-box;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background-color: #D85050;
+    border: solid 3px var(--background);
+}
+
+nav#SiteNavigation #nav-menu {
+    appearance: none;
+    width: 32px;
+    background-image: url(./navigation-menu-vertical.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    background-color: transparent;
+}
