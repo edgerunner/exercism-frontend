@@ -1,6 +1,6 @@
 # Exercism frontend developer challenge
 
-Hi Exercism people. Here's my take on the frontend developer challenge, or at least the first part of it where I built the components bottom-up (ie. starting from atomic ones and building compound components from those.) The second part (where I implement the API communication and state management) comes after the first screening as [mentioned here](https://github.com/exercism/job-application-process/) 
+Hi Exercism people. Here's [my take on the frontend developer challenge](https://edgerunner.github.io/exercism-frontend/), or at least the first part of it where I built the components bottom-up (ie. starting from atomic ones and building compound components from those.) The second part (where I implement the API communication and state management) comes after the first screening as [mentioned here](https://github.com/exercism/job-application-process/) 
 
 ### Some notes
 
@@ -16,4 +16,4 @@ Hi Exercism people. Here's my take on the frontend developer challenge, or at le
 Hope you like it…
 
 Cheers,  
-Mert
+[Mert](https://exercism.org/profiles/edgerunner)
