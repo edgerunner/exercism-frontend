@@ -1,4 +1,5 @@
 import "./index.css";
+import { Avatar } from "/src/components";
 
 export default function SiteNavigation() {
   return (
@@ -29,6 +30,9 @@ export default function SiteNavigation() {
       </a>
       <a href="#" id="reputation" className="new" title="Reputation">
         300K
+      </a>
+      <a href="#" id="profile" title="Profile">
+        <Avatar src="https://avatars.githubusercontent.com/u/286476?v=4" />
       </a>
       <button id="nav-menu" title="Navigation menu">
         &nbsp;
