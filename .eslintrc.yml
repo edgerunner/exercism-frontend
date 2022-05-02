@@ -5,6 +5,7 @@ extends:
   - eslint:recommended
   - plugin:react/recommended
   - plugin:react/jsx-runtime
+  - plugin:storybook/recommended
 parserOptions:
   ecmaFeatures:
     jsx: true
@@ -25,6 +26,7 @@ rules:
   semi:
     - error
     - always
+  react/prop-types: off # bring this back when we have prop types
 
 settings:
   react:

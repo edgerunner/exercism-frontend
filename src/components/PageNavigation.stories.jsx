@@ -11,7 +11,7 @@ export default {
 };
 
 const Template = (args) => {
-  const [_, updateArgs] = useArgs();
+  const [, updateArgs] = useArgs();
   return (
     <PageNavigation
       {...args}
