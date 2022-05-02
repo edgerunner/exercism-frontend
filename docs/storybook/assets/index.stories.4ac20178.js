@@ -1,0 +1,10 @@
+import{A as e}from"./Avatar.60b603f3.js";import"./Button.6143c391.js";import"./Dropdown.0a2d65bc.js";import"./Input.22c04f06.js";import"./Loading.2b696d90.js";import"./PageNavigation.18185e37.js";import"./Pill.eb211c84.js";import"./TimeAgo.a75273b8.js";import"./TrackIcon.3cb17c1d.js";import{a as n,j as i}from"./jsx-runtime.08fc6b8b.js";import"./index.0d5c0cea.js";import"./Pagination.e86f640f.js";function t(){return n("nav",{id:"SiteNavigation",children:[i("a",{href:"#",id:"logo-home",children:"Exercism"}),i("a",{href:"#",id:"nav-dashboard",className:"current",children:"Dashboard"}),i("a",{href:"#",id:"nav-tracks",children:"Tracks"}),i("a",{href:"#",id:"nav-mentoring",children:"Mentoring"}),i("a",{href:"#",id:"nav-contribute",children:"Contribute"}),i("a",{href:"#",id:"badge-comments",className:"new",title:"Comments",children:"\xA0"}),i("a",{href:"#",id:"badge-updates",title:"Updates",children:"\xA0"}),i("a",{href:"#",id:"notifications","data-new":"2",title:"Notifications",children:"\xA0"}),i("a",{href:"#",id:"reputation",className:"new",title:"Reputation",children:"300K"}),i("a",{href:"#",id:"profile",title:"Profile",children:i(e,{src:"https://avatars.githubusercontent.com/u/286476?v=4"})}),i("button",{id:"nav-menu",title:"Navigation menu",children:"\xA0"})]})}t.__docgenInfo={description:"",methods:[],displayName:"SiteNavigation"};var g={parameters:{storySource:{source:`import SiteNavigation from "./";
+
+export default {
+  title: "Features/SiteNavigation",
+  component: SiteNavigation,
+};
+
+export const Dummy = () => <SiteNavigation />;
+;Dummy.__docgenInfo={"description":"","methods":[],"displayName":"Dummy"}`,locationsMap:{dummy:{startLoc:{col:21,line:8},endLoc:{col:45,line:8},startBody:{col:21,line:8},endBody:{col:45,line:8}}}}},title:"Features/SiteNavigation",component:t};const a=()=>i(t,{});a.__docgenInfo={description:"",methods:[],displayName:"Dummy"};const N=["Dummy"];export{a as Dummy,N as __namedExportsOrder,g as default};
+//# sourceMappingURL=index.stories.4ac20178.js.map

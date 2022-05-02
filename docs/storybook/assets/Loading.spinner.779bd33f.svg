@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64"
+    shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+    <style>
+        @keyframes pulse {
+            0% {
+                transform: var(--origin) var(--rotate) rotate(0deg);
+            }
+
+            20% {
+                transform: var(--origin) var(--rotate) rotate(24deg);
+            }
+
+            100% {
+                transform: var(--origin) var(--rotate) rotate(0deg);
+            }
+        }
+
+        #line {
+            stroke: #5c5589;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+        }
+
+        use {
+            --origin: translate(32px, 32px);
+            --phase: 0deg;
+            animation: pulse 2s ease-out infinite;
+        }
+
+        use:nth-of-type(1) {
+            --rotate: rotate(0deg);
+            animation-delay: -2000ms;
+        }
+
+        use:nth-of-type(2) {
+            --rotate: rotate(36deg);
+            animation-delay: -1800ms;
+        }
+
+        use:nth-of-type(3) {
+            --rotate: rotate(72deg);
+            animation-delay: -1600ms;
+        }
+
+        use:nth-of-type(4) {
+            --rotate: rotate(108deg);
+            animation-delay: -1400ms;
+        }
+
+        use:nth-of-type(5) {
+            --rotate: rotate(144deg);
+            animation-delay: -1200ms;
+        }
+
+        use:nth-of-type(6) {
+            --rotate: rotate(180deg);
+            animation-delay: -1000ms;
+        }
+
+        use:nth-of-type(7) {
+            --rotate: rotate(216deg);
+            animation-delay: -800ms;
+        }
+
+        use:nth-of-type(8) {
+            --rotate: rotate(252deg);
+            animation-delay: -600ms;
+        }
+
+        use:nth-of-type(9) {
+            --rotate: rotate(288deg);
+            animation-delay: -400ms;
+        }
+
+        use:nth-of-type(10) {
+            --rotate: rotate(324deg);
+            animation-delay: -200ms;
+        }
+    </style>
+    <defs>
+        <path id="line" d="M0,22V30">
+        </path>
+    </defs>
+    <use xlink:href="#line" />
+    <use xlink:href="#line" />
+    <use xlink:href="#line" />
+    <use xlink:href="#line" />
+    <use xlink:href="#line" />
+    <use xlink:href="#line" />
+    <use xlink:href="#line" />
+    <use xlink:href="#line" />
+    <use xlink:href="#line" />
+    <use xlink:href="#line" />
+</svg>
