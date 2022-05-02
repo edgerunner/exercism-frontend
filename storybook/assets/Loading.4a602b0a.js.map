@@ -1,0 +1,1 @@
+{"version":3,"file":"Loading.4a602b0a.js","sources":["../../../src/components/Loading.jsx"],"sourcesContent":["import \"./Loading.css\";\n\nexport default function Loading() {\n  return (\n    <div className=\"Loading\" title=\"Loading…\">\n      &nbsp;\n    </div>\n  );\n}\n"],"names":[],"mappings":"8CAEA,YAAA,CACA,SACA,MAAA,CAAA,UAAA,UAAA,MAAA,gBAAA,SAAA,MAAA,CADA,CAKA"}

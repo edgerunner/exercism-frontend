@@ -1,0 +1,1 @@
+{"version":3,"file":"Pill.8b72d296.js","sources":["../../../src/components/Pill.jsx"],"sourcesContent":["import \"./Pill.css\";\n\nexport default function Pill({ value }) {\n  return (\n    <data value={value} className=\"Pill\">\n      {value}\n    </data>\n  );\n}\n"],"names":["value"],"mappings":"8CAEA,WAAA,CAAAA,SAAA,CACA,SACA,OAAA,CAAA,QAAA,UAAA,OAAA,SACAA,CAAAA,CAFA,CAKA"}
