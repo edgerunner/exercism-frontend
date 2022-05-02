@@ -1,2 +1,0 @@
-var i=Object.defineProperty;var p=Object.getOwnPropertySymbols;var s=Object.prototype.hasOwnProperty,u=Object.prototype.propertyIsEnumerable;var r=(o,n,t)=>n in o?i(o,n,{enumerable:!0,configurable:!0,writable:!0,value:t}):o[n]=t,e=(o,n)=>{for(var t in n||(n={}))s.call(n,t)&&r(o,t,n[t]);if(p)for(var t of p(n))u.call(n,t)&&r(o,t,n[t]);return o};import{j as a}from"./jsx-runtime.08fc6b8b.js";function I(o){return a("input",e({},o))}I.__docgenInfo={description:"",methods:[],displayName:"Input"};export{I};
-//# sourceMappingURL=Input.22c04f06.js.map

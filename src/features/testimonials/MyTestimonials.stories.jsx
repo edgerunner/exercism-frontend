@@ -1,5 +1,5 @@
 import MyTestimonials from "./MyTestimonials";
-import * as ListStories from "./List/index.stories";
+import * as ListStories from "./list/index.stories";
 
 export default {
   title: "Features/Testimonials/MyTestimonials",

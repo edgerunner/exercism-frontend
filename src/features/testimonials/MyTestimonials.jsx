@@ -1,4 +1,4 @@
-import List from "./List";
+import List from "./list";
 import { Pill } from "/src/components";
 import "./MyTestimonials.css";
 
