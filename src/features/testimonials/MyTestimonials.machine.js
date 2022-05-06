@@ -1,6 +1,6 @@
 import { createMachine, assign } from "xstate";
 
-export default /** @xstate-layout N4IgpgJg5mDOIC5QFkCeACALnTBLAtgPYB2uAhgDawB0AMoWRLsVAMQQljXMBuhA1lwBmYTAGMAFgFowPMACdUmCcyiJQAB0KxceEupAAPRFIBMATmoB2AKwXzADisAGBw5vPbAFgA0IVIhWAIwAbNTmpiEAzA4hNuYeXl4Avsl+aFg4BCTkVNQASmCMqHS4sJjUAJLEEKIK+Mxk2KwGWjp6xAbGCHZhISFW5iFepl5WpqOmfgEI7jbhUa4eHiGRwanpGNjl2aSUNIXF1AAiTWQFRRCorAAKZPJk+HXy6JJkLJCt2rq4+khGiC80XCESCtiCXhijls00QNgcQXCXkczkWNmiUSsVg2IAy2zwRD2eUOVxOZzoDCYLHYnG4xD4gmoInE0nxu1y8H+bR+f1A3SCS2opgcSSC8OcwqsIthPQcpmoSUckzFNiiNhsqTSIGIhFqnJQWyyhI5FMYqi+7V+nX+3SkQQFQqSqqGnmc5ilIRlI0R8Icas8dliQVMURxeKNOX2FyOtDKFWqtWw8gaxCaYAtPOtfMQUS8iNMNmD5nMUSCUVWyxlJbCDhLAuFfvMeY1WvDO2NUZJJVj5WoAGVVBQwFINGQYOgKHGMx0ujnS9QBQ5PBZIc4grWZYMHOF7WqrCNHFFy2HDe3I8TLt249RkABXCh4EdjsATqdc74zm1z+aLqyYptuAWBYyrEVjhBKIZruibi2CemRnkSByXqUvYAKL4BomAYJO5TTlas4IFKliROqjgDG4a5BFW5bULWpYSm4URNmKcFsh2F4xm+mgfvhX4IIsYGLsuTaLOu5ibgW4SmM4YxggWqJ+qxEaIdGpKnJg5xdnhvIAvx85CeMIlrhu-hwgkCoxG6ErossoatqeBLnkhRzqec9Bmiw2lZrpcTyuY9ojH+a55mKMropYTZxCE7iYsKdhKQhJpdmSGleQRAkLq4wmrmJXpDOE6rRcKUSjLWsQJY5Klae+lo6d0xWZUuhk5SZMwjFE4TDFi8QQk1LH2fBlUcmlfF2rmjpeM6ISuu6sQyrm27xPuUrWU1dmpEAA */
+export default /** @xstate-layout N4IgpgJg5mDOIC5QFkCeACALnTBLAtgPYB2uAhgDawB0AMoWRLsVAMQQljXMBuhA1lwBmYTAGMAFgFowPMACdUmCcyiJQAB0KxceEupAAPRFIBMATmoB2AKwXzADisAGBw5vPbAFgA0IVIhWAIwAbNTmpiEAzA4hNuYeXl4Avsl+aFg4BCTkVNQASmCMqHS4sJjUAJLEEKIK+Mxk2KwGWjp6xAbGCHZhISFW5iFepl5WpqOmfgEI7jbhUa4eHiGRwanpGNjl2aSUNIXF1AAiTWQFRRCorAAKZPJk+HXy6JJkLJCt2rq4+khGiC80XCESCtiCXhijls00QNgcQXCXkczkWNmiUSsVg2IAy2zwRD2eUOVxOZzoDCYLHYnG4xD4gmoInE0nxu1y8H+bR+f1A3SCS2opgcSSC8OcwqsIthPQcpmoSUckzFNiiNhsqTSIGIhFqnJQWyyhI5FMYqi+7V+nX+3SkQQFQqSqqGnmc5ilIRlI0R8Icas8dliQVMURxeKNOX2FyOtDKFWqtWw8gaxCaYAtPOtfMQUS8iNMNmD5nMUSCUVWyxlJbCDhLAuFfvMeY1WvDO2NUZJJVj5WoAGVVBQwFINGQYOgKHGMx0ujnS9QBQ5PBZIc4grWZYMHOF7WqrCNHFFy2HDe3I8TLt249RkABXCh4EdjsATqdc74zm1z+aLqyYptuAWBYyrEVjhBKIZruibi2CemRnkSByXqUvYAKL4BomAYJO5TTlas4IFKliROqjgDG4a5BFW5bULWpYSm4URNmKcFsh2F4xm+mgfvhX4IIsYGLsuTaLOu5ibgW4SmM4HguCWbpMaxEaIdGpKnJg5xdnhvIAvx85CeMIlrhu-hwgkCoxG6ErossoatqeBLnkhRzqec9Bmiw2lZrpcTyuY9ojH+a55mKMropYTZxCE7iYsKdhKQhJpdmSGleQRAkLq4wmrmJXpDOE6rBHKzgyV4NhlQljkqVp76Wjp3TClEmVLoZOUmTMIxNUMXgIn+lnBs4KT2fBVUcmlfF2rmjplUxISuu6sQyrm27xPu4KqhMQItqkQA */
 createMachine(
   {
     context: {
@@ -21,7 +21,7 @@ createMachine(
           id: "fetch-everything",
           onDone: [
             {
-              actions: ["updateTracksAndTestimonials"],
+              actions: "updateTracksAndTestimonials",
               target: "Ready",
             },
           ],

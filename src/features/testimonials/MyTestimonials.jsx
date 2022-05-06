@@ -1,5 +1,5 @@
 import List from "./list";
-import { Pill } from "/src/components";
+import { Pill, Loading } from "/src/components";
 import { useMemo } from "react";
 import { useMachine } from "@xstate/react";
 import machine from "./MyTestimonials.machine.js";
@@ -17,6 +17,13 @@ export default function MyTestimonials(props) {
       ),
     [state]
   );
+
+  if (state.matches("Loading"))
+    return (
+      <div className="Loading-scope">
+        <Loading />
+      </div>
+    );
 
   return (
     <main className="MyTestimonials page">
