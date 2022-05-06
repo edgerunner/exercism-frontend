@@ -7,7 +7,6 @@ import "./MyTestimonials.css";
 
 export default function MyTestimonials(props) {
   const [state] = useMachine(machine);
-  console.log(state);
 
   const totalCount = useMemo(
     () =>
@@ -31,7 +30,7 @@ export default function MyTestimonials(props) {
         <h1>Testimonials I&apos;ve left</h1>
         <Pill value={totalCount} />
       </header>
-      <List {...props} />
+      <List {...props} testimonials={state.context.testimonials.results} />
     </main>
   );
 }
