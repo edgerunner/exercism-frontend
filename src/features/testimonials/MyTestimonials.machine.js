@@ -110,11 +110,25 @@ function fetchTestimonials({ parameters }) {
 }
 
 function fetchTracks() {
-  return fetch("https://exercism.org/api/v2/tracks").then((res) => res.json());
+  return fetch("https://exercism.org/api/v2/tracks")
+    .then((res) => res.json())
+    .then(tracksMap);
 }
 
 function fetchEverything(context) {
-  return Promise.all([fetchTracks(), fetchTestimonials(context)]).then(
-    ([tracks, testimonials]) => ({ ...tracks, ...testimonials })
-  );
+  return Promise.all([fetchTracks(), fetchTestimonials(context)])
+    .then(([tracks, testimonials]) => ({ tracks, ...testimonials }))
+    .then(populateTrackData);
+}
+
+function populateTrackData({ tracks, testimonials }) {
+  testimonials.tracks.forEach((track, index) => {
+    testimonials.tracks[index] = tracks.get(track);
+    testimonials.tracks[index].count = testimonials.track_counts[track] || 0;
+  });
+  return { tracks, testimonials };
+}
+
+function tracksMap(json) {
+  return new Map(json.tracks.map((track) => [track.slug, track]));
 }
