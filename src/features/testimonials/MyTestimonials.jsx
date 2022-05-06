@@ -35,6 +35,8 @@ export default function MyTestimonials(props) {
         testimonials={state.context.testimonials.results}
         currentPage={state.context.testimonials.pagination.current_page}
         pageCount={state.context.testimonials.pagination.total_pages}
+        tracks={state.context.testimonials.tracks}
+        selectedTrack={state.context.parameters.track}
       />
     </main>
   );

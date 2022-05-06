@@ -11,6 +11,8 @@ menu.Dropdown {
     border-radius: 8px;
     margin: 0;
     z-index: 100;
+    max-height: min(50vh, 320px);
+    overflow-y: auto;
 }
 
 menu.Dropdown > li {
