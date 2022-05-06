@@ -37,6 +37,8 @@ export default function MyTestimonials(props) {
         pageCount={state.context.testimonials.pagination.total_pages}
         tracks={state.context.testimonials.tracks}
         selectedTrack={state.context.parameters.track}
+        search={state.context.parameters.exercise}
+        sort={state.context.parameters.order}
       />
     </main>
   );
