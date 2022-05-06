@@ -5,7 +5,7 @@ import { useMachine } from "@xstate/react";
 import machine from "./MyTestimonials.machine.js";
 import "./MyTestimonials.css";
 
-export default function MyTestimonials(props) {
+export default function MyTestimonials() {
   const [state] = useMachine(machine);
 
   const totalCount = useMemo(
@@ -31,7 +31,6 @@ export default function MyTestimonials(props) {
         <Pill value={totalCount} />
       </header>
       <List
-        {...props}
         testimonials={state.context.testimonials.results}
         currentPage={state.context.testimonials.pagination.current_page}
         pageCount={state.context.testimonials.pagination.total_pages}
