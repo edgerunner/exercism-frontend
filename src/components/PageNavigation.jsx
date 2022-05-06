@@ -18,9 +18,11 @@ export default function PageNavigation({ count, current, onPageChange }) {
       >
         {(p) =>
           p.current ? (
-            <b>{p.page}</b>
+            <b key={p.page}>{p.page}</b>
           ) : (
-            <a onClick={() => onPageChange(p.page)}>{p.page}</a>
+            <a key={p.page} onClick={() => onPageChange(p.page)}>
+              {p.page}
+            </a>
           )
         }
       </Pagination>

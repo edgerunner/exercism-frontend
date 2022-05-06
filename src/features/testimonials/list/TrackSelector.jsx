@@ -39,6 +39,7 @@ export default function TrackSelector({ tracks, selected, onSelect }) {
               {...track}
               selected={track.slug === selected}
               onClick={onSelect}
+              key={track.slug}
             />
           ))}
         </Dropdown.Menu>
@@ -69,9 +70,9 @@ function ChevronDown() {
       <path
         d="M13.5938 0.960125L7.78708 6.76625C7.71098 6.84246 7.6077 6.88528 7.5 6.88528C7.3923 6.88528 7.28902 6.84246 7.21292 6.76625L1.40625 0.960125"
         stroke="#5C5589"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
