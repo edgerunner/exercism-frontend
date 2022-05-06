@@ -8,7 +8,7 @@ createMachine(
         page: null,
         track: null,
         order: "newest_first",
-        exercise: null,
+        exercise: "",
       },
       testimonials: null,
       tracks: null,
