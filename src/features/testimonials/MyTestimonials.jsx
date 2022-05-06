@@ -30,7 +30,12 @@ export default function MyTestimonials(props) {
         <h1>Testimonials I&apos;ve left</h1>
         <Pill value={totalCount} />
       </header>
-      <List {...props} testimonials={state.context.testimonials.results} />
+      <List
+        {...props}
+        testimonials={state.context.testimonials.results}
+        currentPage={state.context.testimonials.pagination.current_page}
+        pageCount={state.context.testimonials.pagination.total_pages}
+      />
     </main>
   );
 }
