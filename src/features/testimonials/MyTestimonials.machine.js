@@ -41,7 +41,7 @@ createMachine(
           },
           Loading: {
             invoke: {
-              src: "fetchTestimonials",
+              src: "fetchTestimonialsOnly",
               id: "fetch-testimonials",
               onDone: [
                 {
@@ -57,9 +57,11 @@ createMachine(
     id: "My testimonials",
   },
   {
-    services: { fetchTestimonials, fetchEverything },
+    services: { fetchTestimonialsOnly, fetchEverything },
     actions: {
-      updateTestimonials: assign({ testimonials: (_, event) => event.data }),
+      updateTestimonials: assign({
+        testimonials: (_, event) => event.data.testimonials,
+      }),
       updateTracksAndTestimonials: assign({
         tracks: (_, event) => event.data.tracks,
         testimonials: (_, event) => event.data.testimonials,
@@ -91,10 +93,18 @@ function fetchEverything(context) {
     .then(populateTrackData);
 }
 
+function fetchTestimonialsOnly(context) {
+  return fetchTestimonials(context)
+    .then((testimonials) => ({ tracks: context.tracks, ...testimonials }))
+    .then(populateTrackData);
+}
+
 function populateTrackData({ tracks, testimonials }) {
+  testimonials.total = 0;
   testimonials.tracks.forEach((track, index) => {
     testimonials.tracks[index] = tracks.get(track);
     testimonials.tracks[index].count = testimonials.track_counts[track] || 0;
+    testimonials.total += testimonials.track_counts[track];
   });
   return { tracks, testimonials };
 }
