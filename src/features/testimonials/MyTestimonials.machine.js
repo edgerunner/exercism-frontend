@@ -1,6 +1,6 @@
 import { createMachine, assign } from "xstate";
 
-export default /** @xstate-layout N4IgpgJg5mDOIC5QFkCeACALnTBLAtgPYB2uAhgDawB0AMoWRLsVAMQQljXMBuhA1lwBmYTAGMAFgFowPMACdUmCcyiJQAB0KxceEupAAPRAFYATABoQqRABYAnADZq9245MB2M-bMmAjAAMAMwAHCYAvuFWaFg4BCTkVNQASmCMqNQAkhAUYKwAwhJkLGBY8mRi-OiwYLliesQGWjoNBsYItrYh1B5+Zn6efo6+bvZBVjYInh4uZkF9Ad625j6R0RjYsHhEpJQ0qelZOXmFxTDohPIQCqpN2rq4+khGdl09fQO9wyaj49Z29gCLhMJkcrg8IT8IRC8wiURAMU22wSexSaQgGWyuQKRRK6A0ZBgdxaj0az3abiBZi6jkcQXcITMtNsE0QYPs1DC9lBQTM0L5PzWCI2cR2iX26Iy9EYqnYnG4xD4gmoInE0iR8V2VGJDyeoHagUcfmofg8TghoPMoNZU1B1Fs3kWnRCAR8MMi8OIhGu8GeiNFKKS0qYLB1rXJdks-wQgJcgPsfXs9khIzMQv9W014rRhyxYDDpLaiCCQSBpa8pYTXk6JhtJhh1GpdKhQx+tjN6ZFmbFqIOGLoDBDamezV1ZP1bKNJpCw1dtgCJl50LrvPtpd5jl6ASh1M7sW7gYl6QLepeCFLznLc1dpupyxttlNLkcNJvARfJb3Gp72pH93DE4IFCNpPkmYHgRBQQeuEQA */
+export default /** @xstate-layout N4IgpgJg5mDOIC5QFkCeACALnTBLAtgPYB2uAhgDawB0AMoWRLsVAMQQljXMBuhA1lwBmYTAGMAFgFowPMACdUmCcyiJQAB0KxceEupAAPRAEYADAHZqADgCcJ2wGZrZ6yYCsj9xYBsAGhBUREcTE2oAJgsAFh8zcJiLDwtfAF8UgLQsHAIScipqACUwRlRqAEkICjBWAGEJMhYwLHkyMX50WDAqsT1iAy0dXoNjBFsXalCLcJDws3cTKLsAoIQTHysouJNw9yjnW3CndzSMjGxYPCJSShoikvLK6rqGmHRCeQgFVX7tXVx9JBGRDuezULzhFxrCxuTZRZamdbUTbhBaOHwQlHuY7pECZc6XXI3QrFCClCpVWr1RroDRkGA-Qb-PqAkbWcI+agHNHWRLhaahEzwhCHcJIhwmNzgxxmRy2bGnLIXHLXfJ3Ul0BhMFjsTjcYh8QTUETiaT45V5eCAgZ-AGgEahTwRbyeHYWcFyoVRCy2ag+WXsnZrSJRL1pHHEQifS0oM7ZK4WjWMb5W35DFmIKLhIW2MycnP2Q5jba7cInXGxpXxolqsmPBk25l2xDWWURHaWCxmWyZmX+QKmbs2azuOyRaIQ+zWMt4uOE1Uk0r0JMsetppsIHxjJHSluLNyzHx9lZRLETTbeMbeEyORbTisElW3BerpnDYGI8GQ9Ywsxw-ujKIxW2Lx3DMHx5lsaI70VB8LRfW0gVWawhQlagzHQmUUViLw7GvMMUiAA */
 createMachine(
   {
     context: {
@@ -34,11 +34,11 @@ createMachine(
           Idle: {
             on: {
               "Change track selection": {
-                actions: "updateSelectedTrack",
+                actions: ["updateSelectedTrack", "resetPage"],
                 target: "Loading",
               },
               "Change ordering": {
-                actions: "updateOrder",
+                actions: ["updateOrder", "resetPage"],
                 target: "Loading",
               },
               "Change page": {
@@ -82,6 +82,9 @@ createMachine(
       }),
       updatePage: assign({
         parameters: ({ parameters }, { page }) => ({ ...parameters, page }),
+      }),
+      resetPage: assign({
+        parameters: ({ parameters }) => ({ ...parameters, page: null }),
       }),
     },
   }
