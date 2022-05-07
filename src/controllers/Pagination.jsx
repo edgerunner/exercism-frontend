@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, Fragment } from "react";
 
 export default function Pagination({
   count,
@@ -40,5 +40,11 @@ export default function Pagination({
     [count, current, children, spacer, spread, cap]
   );
 
-  return <>{[...generator()]}</>;
+  return (
+    <>
+      {[...generator()].map((p, i) => (
+        <Fragment key={i}>{p}</Fragment>
+      ))}
+    </>
+  );
 }
