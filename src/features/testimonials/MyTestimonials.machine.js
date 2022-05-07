@@ -1,6 +1,6 @@
 import { createMachine, assign } from "xstate";
 
-export default /** @xstate-layout N4IgpgJg5mDOIC5QFkCeACALnTBLAtgPYB2uAhgDawB0AMoWRLsVAMQQljXMBuhA1lwBmYTAGMAFgFowPMACdUmCcyiJQAB0KxceEupAAPRAFYATABoQqRABYAnADZq9248cmAzAAYzADj9HN0cAXxCrNCwcAhJyKmoAJTBGVGoASQgKMFYAYQkyFjAseTIxfnRYMCyxPWIDLR1ag2MEW1s-agB2AEYzMxNvV36TVysbBBNOzpczTzNuhdtPe26gsIiMbFg8IlJKGiSU9MzsvIKYdEJ5CAVVeu1dXH0kIzt2rt7+wdth0es7ezeFwmSZtRy+EzddqddYgSJbHaxfaJZIQVL0RiqdicbjEPiCagicTSBExPZUe6NJ51F4tbreRzdajdTr2Tq+bz0-oBMamEzOH6Avzs7yDTyOPxhcIgYiEG7wF7w6K7OI0DFMFiUx7PUAtH68hCAlxC+xmdqeTq2KawpXbMmqlFHDJZLVNWmITw+ag+TpzNxs-qdA0mPyeahmxzizz0lneZY2zbKpHxQ5ougMDVqF4NbU03WIdxM7qBWb+Aae7r2YNzahLOMeTp+SHCmHS22I8kHVHjTQPN35hA+Zw+v2OAOTA22FkuIJN+bFzqOTpmBNRO0q-au6nNRDFg3FqUhIA */
+export default /** @xstate-layout N4IgpgJg5mDOIC5QFkCeACALnTBLAtgPYB2uAhgDawB0AMoWRLsVAMQQljXMBuhA1lwBmYTAGMAFgFowPMACdUmCcyiJQAB0KxceEupAAPRAFYATABoQqRABYAnADZq9245MB2M-bMmAjAAMAMwAHCYAvuFWaFg4BCTkVNQASmCMqNQAkhAUYKwAwhJkLGBY8mRi-OiwYLliesQGWjoNBsYItrYh1B5+Zn6efo6+bvZBVjYInh4uZkF9Ad625j6R0RjYsHhEpJQ0qelZOXmFxTDohPIQCqpN2rq4+khGdl09fQO9wyaj49Z29gCLhMJkcrg8IT8IRC8wiURAMU22wSexSaQgGWyuQKRRK6A0ZBgdxaj0az3abiBZi6jkcQXcITMtNsE0QYPs1DC9lBQTM0L5PzWCI2cR2iX26Iy9EYqnYnG4xD4gmoInE0iR8V2VGJDyeoHagUcfmofg8TghoPMoNZU1B1Fs3kWnRCAR8MMi8OIhGu8GeiNFKKS0qYLB1rXJdks-wQgJcgPsfXs9khIzMQv9W014rRhyxYDDpLaiCCQSBpa8pYTXk6JhtJhh1GpdKhQx+tjN6ZFmbFqIOGLoDBDamezV1ZP1bKNJpCw1dtgCJl50LrvPtpd5jl6ASh1M7sW7gYl6QLepeCFLznLc1dpupyxttlNLkcNJvARfJb3Gp72pH93DE4IFCNpPkmYHgRBQQeuEQA */
 createMachine(
   {
     context: {
@@ -41,6 +41,10 @@ createMachine(
                 actions: "updateOrder",
                 target: "Loading",
               },
+              "Change page": {
+                actions: "updatePage",
+                target: "Loading",
+              },
             },
           },
           Loading: {
@@ -75,6 +79,9 @@ createMachine(
       }),
       updateOrder: assign({
         parameters: ({ parameters }, { order }) => ({ ...parameters, order }),
+      }),
+      updatePage: assign({
+        parameters: ({ parameters }, { page }) => ({ ...parameters, page }),
       }),
     },
   }

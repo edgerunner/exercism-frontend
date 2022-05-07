@@ -24,6 +24,7 @@ export default function MyTestimonials() {
         testimonials={state.context.testimonials.results}
         currentPage={state.context.testimonials.pagination.current_page}
         pageCount={state.context.testimonials.pagination.total_pages}
+        onPageChange={(page) => send("Change page", { page })}
         tracks={state.context.testimonials.tracks}
         onTrackChange={(track) => send("Change track selection", { track })}
         selectedTrack={state.context.parameters.track}
