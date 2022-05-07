@@ -1,7 +1,6 @@
 import TrackSelector from "./TrackSelector";
-import SortSelector from "./SortSelector";
+import OrderSelector from "./OrderSelector";
 import { Input } from "/src/components";
-import { useState } from "react";
 
 export default function Header({
   tracks,
@@ -9,8 +8,8 @@ export default function Header({
   onTrackChange,
   onSearch,
   search,
-  sort = "newest_first",
-  onSort,
+  order = "newest_first",
+  onOrderChange,
 }) {
   return (
     <header>
@@ -25,7 +24,7 @@ export default function Header({
         onChange={onSearch}
         placeholder="Filter by exercise title"
       />
-      <SortSelector sort={sort} onSort={onSort} />
+      <OrderSelector order={order} onOrderChange={onOrderChange} />
     </header>
   );
 }

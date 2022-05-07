@@ -1,6 +1,6 @@
 import { createMachine, assign } from "xstate";
 
-export default /** @xstate-layout N4IgpgJg5mDOIC5QFkCeACALnTBLAtgPYB2uAhgDawB0AMoWRLsVAMQQljXMBuhA1lwBmYTAGMAFgFowPMACdUmCcyiJQAB0KxceEupAAPRAEYADAHZqADgCcJ2wGYALHevWATLYCsANgA0IKiIHhbe1M4WHtaOjk5xzr62AL7JgWhYOAQk5FTUAEpgjKjUAJIQFGCsAMISZCxgWPJkYvzosGCVYnrEBlo6PQbGCJFWvt4Tvg4W1s4m1t6BwQihZtTeXr6OsxZbc46p6RjYsHhEpJQ0hcV0DEws7JzcxHyC1CLi0idnOZd92rpcPokEZEL5fM4bI5fHYPHM7LYzCYlqYwhEzONYmYzC5bB5HBZUmkQMRCBA4AYMt9shc8vRGKp-gMgb0QcNnB4UQhEdRbIi7NiNhYTPjnIcQFSsudclcihASuVKkzAcDQMMNh5qA5sZEfASvM4uSYYRFfDMMS4-M48d5xZLTjSZQU5SV6fc1CD+irWWrENa1h4NsbbBYcTjHFznBjTR5Y7HvGZETDbcT7T9abLisrBmy-d5HNRxpNprN5osgogfBFdvZfF4vNC8XbjlLflRsyyhqZrEbrNRsQOojNjeCU6kgA */
+export default /** @xstate-layout N4IgpgJg5mDOIC5QFkCeACALnTBLAtgPYB2uAhgDawB0AMoWRLsVAMQQljXMBuhA1lwBmYTAGMAFgFowPMACdUmCcyiJQAB0KxceEupAAPRAFYATABoQqRABYAnADZq9248cmAzAAYzADj9HN0cAXxCrNCwcAhJyKmoAJTBGVGoASQgKMFYAYQkyFjAseTIxfnRYMCyxPWIDLR1ag2MEW1s-agB2AEYzMxNvV36TVysbBBNOzpczTzNuhdtPe26gsIiMbFg8IlJKGiSU9MzsvIKYdEJ5CAVVeu1dXH0kIzt2rt7+wdth0es7ezeFwmSZtRy+EzddqddYgSJbHaxfaJZIQVL0RiqdicbjEPiCagicTSBExPZUe6NJ51F4tbreRzdajdTr2Tq+bz0-oBMamEzOH6Avzs7yDTyOPxhcIgYiEG7wF7w6K7OI0DFMFiUx7PUAtH68hCAlxC+xmdqeTq2KawpXbMmqlFHDJZLVNWmITw+ag+TpzNxs-qdA0mPyeahmxzizz0lneZY2zbKpHxQ5ougMDVqF4NbU03WIdxM7qBWb+Aae7r2YNzahLOMeTp+SHCmHS22I8kHVHjTQPN35hA+Zw+v2OAOTA22FkuIJN+bFzqOTpmBNRO0q-au6nNRDFg3FqUhIA */
 createMachine(
   {
     context: {
@@ -37,6 +37,10 @@ createMachine(
                 actions: "updateSelectedTrack",
                 target: "Loading",
               },
+              "Change ordering": {
+                actions: "updateOrder",
+                target: "Loading",
+              },
             },
           },
           Loading: {
@@ -68,6 +72,9 @@ createMachine(
       }),
       updateSelectedTrack: assign({
         parameters: ({ parameters }, { track }) => ({ ...parameters, track }),
+      }),
+      updateOrder: assign({
+        parameters: ({ parameters }, { order }) => ({ ...parameters, order }),
       }),
     },
   }
