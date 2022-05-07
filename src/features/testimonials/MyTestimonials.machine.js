@@ -1,6 +1,6 @@
 import { createMachine, assign } from "xstate";
 
-export default /** @xstate-layout N4IgpgJg5mDOIC5QFkCeACALnTBLAtgPYB2uAhgDawB0AMoWRLsVAMQQljXMBuhA1lwBmYTAGMAFgFowPMACdUmCcyiJQAB0KxceEupAAPRFIBMATmoB2AKwXzADisAGBw5vPbAFgA0IVIhWAIwAbNTmpiEAzA4hNuYeXl4Avsl+aFg4BCTkVNQASmCMqHS4sJjUAJLEEKIK+Mxk2KwGWjp6xAbGCHZhISFW5iFepl5WpqOmfgEI7jbhUa4eHiGRwanpGNjl2aSUNIXF1AAiTWQFRRCorAAKZPJk+HXy6JJkLJCt2rq4+khGiC80XCESCtiCXhijls00QNgcQXCXkczkWNmiUSsVg2IAy2zwRD2eUOVxOZzoDCYLHYnG4xD4gmoInE0nxu1y8H+bR+f1A3SCS2opgcSSC8OcwqsIthPQcpmoSUckzFNiiNhsqTSIGIhFqnJQWyyhI5FMYqi+7V+nX+3SkQQFQqSqqGnmc5ilIRlI0R8Icas8dliQVMURxeKNOX2FyOtDKFWqtWw8gaxCaYAtPOtfMQUS8iNMNmD5nMUSCUVWyxlJbCDhLAuFfvMeY1WvDO2NUZJJVj5WoAGVVBQwFINGQYOgKHGMx0ujnS9QBQ5PBZIc4grWZYMHOF7WqrCNHFFy2HDe3I8TLt249RkABXCh4EdjsATqdc74zm1z+aLqyYptuAWBYyrEVjhBKIZruibi2CemRnkSByXqUvYAKL4BomAYJO5TTlas4IFKliROqjgDG4a5BFW5bULWpYSm4URNmKcFsh2F4xm+mgfvhX4IIsYGLsuTaLOu5ibgW4SmM4HguCWbpMaxEaIdGpKnJg5xdnhvIAvx85CeMIlrhu-hwgkCoxG6ErossoatqeBLnkhRzqec9Bmiw2lZrpcTyuY9ojH+a55mKMropYTZxCE7iYsKdhKQhJpdmSGleQRAkLq4wmrmJXpDOE6rBHKzgyV4NhlQljkqVp76Wjp3TClEmVLoZOUmTMIxNUMXgIn+lnBs4KT2fBVUcmlfF2rmjplUxISuu6sQyrm27xPu4KqhMQItqkQA */
+export default /** @xstate-layout N4IgpgJg5mDOIC5QFkCeACALnTBLAtgPYB2uAhgDawB0AMoWRLsVAMQQljXMBuhA1lwBmYTAGMAFgFowPMACdUmCcyiJQAB0KxceEupAAPRAEYADAHZqADgCcJ2wGYALHevWATLYCsANgA0IKiIHhbe1M4WHtaOjk5xzr62AL7JgWhYOAQk5FTUAEpgjKjUAJIQFGCsAMISZCxgWPJkYvzosGCVYnrEBlo6PQbGCJFWvt4Tvg4W1s4m1t6BwQihZtTeXr6OsxZbc46p6RjYsHhEpJQ0hcV0DEws7JzcxHyC1CLi0idnOZd92rpcPokEZEL5fM4bI5fHYPHM7LYzCYlqYwhEzONYmYzC5bB5HBZUmkQMRCBA4AYMt9shc8vRGKp-gMgb0QcNnB4UQhEdRbIi7NiNhYTPjnIcQFSsudclcihASuVKkzAcDQMMNh5qA5sZEfASvM4uSYYRFfDMMS4-M48d5xZLTjSZQU5SV6fc1CD+irWWrENa1h4NsbbBYcTjHFznBjTR5Y7HvGZETDbcT7T9abLisrBmy-d5HNRxpNprN5osgogfBFdvZfF4vNC8XbjlLflRsyyhqZrEbrNRsQOojNjeCU6kgA */
 createMachine(
   {
     context: {
@@ -29,54 +29,26 @@ createMachine(
         type: "parallel",
       },
       Ready: {
-        type: "parallel",
+        initial: "Idle",
         states: {
-          List: {
-            initial: "Indeterminate",
-            states: {
-              Indeterminate: {
-                always: [
-                  {
-                    cond: "List is empty",
-                    target: "Empty list",
-                  },
-                  {
-                    cond: "Only one page",
-                    target: "Single-page list",
-                  },
-                  {
-                    target: "Multi-page list",
-                  },
-                ],
+          Idle: {
+            on: {
+              "Change track selection": {
+                actions: "updateSelectedTrack",
+                target: "Loading",
               },
-              "Single-page list": {},
-              "Multi-page list": {},
-              "Empty list": {},
             },
           },
-          Data: {
-            initial: "Ready",
-            states: {
-              Ready: {
-                on: {
-                  "Parameter changed": {
-                    actions: "Update parameters",
-                    target: "Loading",
-                  },
+          Loading: {
+            invoke: {
+              src: "fetchTestimonials",
+              id: "fetch-testimonials",
+              onDone: [
+                {
+                  actions: "updateTestimonials",
+                  target: "#My testimonials.Ready",
                 },
-              },
-              Loading: {
-                invoke: {
-                  src: "fetchTestimonials",
-                  id: "fetch-testimonials",
-                  onDone: [
-                    {
-                      actions: "updateTestimonials",
-                      target: "#My testimonials.Ready",
-                    },
-                  ],
-                },
-              },
+              ],
             },
           },
         },
@@ -92,11 +64,9 @@ createMachine(
         tracks: (_, event) => event.data.tracks,
         testimonials: (_, event) => event.data.testimonials,
       }),
-    },
-    guards: {
-      "List is empty": ({ testimonials }) => testimonials.results.length === 0,
-      "Only one page": ({ testimonials }) =>
-        testimonials.pagination.total_pages === 1,
+      updateSelectedTrack: assign({
+        parameters: ({ parameters }, { track }) => ({ ...parameters, track }),
+      }),
     },
   }
 );
