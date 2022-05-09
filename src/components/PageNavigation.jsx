@@ -1,8 +1,9 @@
 import "./PageNavigation.css";
-import { Pagination } from "/src/controllers";
+import { usePagination } from "/src/hooks";
 import { Button } from "/src/components";
 
 export default function PageNavigation({ count, current, onPageChange }) {
+  const pageGenerator = usePagination({ count, current });
   return (
     <nav className="PageNavigation">
       <Button
@@ -12,20 +13,17 @@ export default function PageNavigation({ count, current, onPageChange }) {
       >
         Previous
       </Button>
-      <Pagination
-        {...{ count, current }}
-        spacer={<span className="spacer">⋯</span>}
-      >
-        {(p) =>
-          p.current ? (
-            <b key={p.page}>{p.page}</b>
-          ) : (
-            <a key={p.page} onClick={() => onPageChange(p.page)}>
-              {p.page}
-            </a>
-          )
-        }
-      </Pagination>
+      {[...pageGenerator()].map((p) =>
+        p.spacer ? (
+          <span className="spacer">⋯</span>
+        ) : p.current ? (
+          <b key={p.page}>{p.page}</b>
+        ) : (
+          <a key={p.page} onClick={() => onPageChange(p.page)}>
+            {p.page}
+          </a>
+        )
+      )}
       <Button
         className="next"
         onClick={current < count ? () => onPageChange(current + 1) : null}

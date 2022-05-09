@@ -38,12 +38,10 @@ const machine = createMachine(
   }
 );
 
-export default function DebouncingInput({
-  delay = 500,
-  defaultValue = "",
+export default function useDebounce(
   onChange,
-  children,
-}) {
+  { delay = 500, defaultValue = "" }
+) {
   const options = useMemo(
     () => ({
       delays: { delay },
@@ -61,9 +59,5 @@ export default function DebouncingInput({
     [send]
   );
 
-  return children(
-    state.context.value,
-    handleInput,
-    state.matches("Debouncing")
-  );
+  return [state.context.value, handleInput, state.matches("Debouncing")];
 }
