@@ -50,13 +50,11 @@ export default function DebouncingInput({
       actions: {
         fireChangeEvent: (context) => onChange?.(context.value),
       },
+      context: { value: defaultValue },
     }),
     [delay, onChange]
   );
-  const [state, send] = useMachine(
-    machine.withContext({ value: defaultValue }),
-    options
-  );
+  const [state, send] = useMachine(machine, options);
 
   const handleInput = useCallback(
     (value) => send("onInput", { value }),
