@@ -28,8 +28,10 @@ export default function MyTestimonials() {
         tracks={state.context.testimonials.tracks}
         onTrackChange={(track) => send("Change track selection", { track })}
         selectedTrack={state.context.parameters.track}
-        search={state.context.parameters.exercise}
-        onSearch={(exercise) => send("Change exercise search", { exercise })}
+        exercise={state.context.parameters.exercise}
+        onExerciseChange={(exercise) =>
+          send("Change exercise search", { exercise })
+        }
         order={state.context.parameters.order}
         onOrderChange={(order) => send("Change ordering", { order })}
         loading={state.matches("Ready.Loading")}

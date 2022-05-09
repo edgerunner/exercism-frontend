@@ -7,8 +7,8 @@ export default function Header({
   tracks,
   selectedTrack,
   onTrackChange,
-  onSearch,
-  search,
+  exercise,
+  onExerciseChange,
   order = "newest_first",
   onOrderChange,
 }) {
@@ -19,7 +19,7 @@ export default function Header({
         tracks={tracks}
         selected={selectedTrack}
       />
-      <DebouncingInput onChange={(v) => onSearch(v)} defaultValue={search}>
+      <DebouncingInput onChange={onExerciseChange} defaultValue={exercise}>
         {(value, handleInput) => (
           <Input
             type="search"
