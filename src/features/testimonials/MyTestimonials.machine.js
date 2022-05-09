@@ -1,7 +1,7 @@
 import { createMachine, assign } from "xstate";
 
-export default /** @xstate-layout N4IgpgJg5mDOIC5QFkCeACALnTBLAtgPYB2uAhgDawB0AMoWRLsVAMQQljXMBuhA1lwBmYTAGMAFgFowPMACdUmCcyiJQAB0KxceEupAAPRAEYADAHZqADgCcJ2wGZrZ6yYCsj9xYBsAGhBUREcTE2oAJgsAFh8zcJiLDwtfAF8UgLQsHAIScipqACUwRlRqAEkICjBWAGEJMhYwLHkyMX50WDAqsT1iAy0dXoNjBFsXalCLcJDws3cTKLsAoIQTHysouJNw9yjnW3CndzSMjGxYPCJSShoikvLK6rqGmHRCeQgFVX7tXVx9JBGRDuezULzhFxrCxuTZRZamdbUTbhBaOHwQlHuY7pECZc6XXI3QrFCClCpVWr1RroDRkGA-Qb-PqAkbWcI+agHNHWRLhaahEzwhCHcJIhwmNzgxxmRy2bGnLIXHLXfJ3Ul0BhMFjsTjcYh8QTUETiaT45V5eCAgZ-AGgEahTwRbyeHYWcFyoVRCy2ag+WXsnZrSJRL1pHHEQifS0oM7ZK4WjWMb5W35DFmIKLhIW2MycnP2Q5jba7cInXGxpXxolqsmPBk25l2xDWWURHaWCxmWyZmX+QKmbs2azuOyRaIQ+zWMt4uOE1Uk0r0JMsetppsIHxjJHSluLNyzHx9lZRLETTbeMbeEyORbTisElW3BerpnDYGI8GQ9Ywsxw-ujKIxW2Lx3DMHx5lsaI70VB8LRfW0gVWawhQlagzHQmUUViLw7GvMMUiAA */
-createMachine(
+/** @xstate-layout N4IgpgJg5mDOIC5QFkCeACALnTBLAtgPYB2uAhgDawB0AMoWRLsVAMQQljXMBuhA1lwBmYTAGMAFgFowPMACdUmCcyiJQAB0KxceEupAAPRAEYADAHZqADgCcJ2wGZrZ6yYCsj9xYBsAGhBUREcTE2oAJgsAFh8zcJiLDwtfAF8UgLQsHAIScipqACUwRlRqAEkICjBWAGEJMhYwLHkyMX50WDAqsT1iAy0dXoNjBHMLd2oo20jwxzMnM0cLAKDRnysouJMor28oixcLNIyMbFg8IlJKGiKS8srquoaYdEJ5CAVVfu1dXH0kIyIdz2ahecIuEzrNybKIrUzrSZbHY+cHhDzuY4gTJnC65a6FYoQUoVKq1eqNdAaMgwb6DP59AEjCxo6i2CFmEx2dzcjxwhAhML2ExeHy2bwo6zhTHY7KXPI3QnEh5k55NMCGBRiXCdDrFeSSWm-f6gEbWaLUaLzHxeCxs+awwLBUKs0JeKLbbzucIY9JY06yvH5W5EugMJgsdicbjEPiCagicTSHE5K5UQ1DRmmYVRCKQnbWSXWKY+ax8-a2ajW6buFzc6zrNK+4iED7wAEy84p+WhxhfAEDI0Mk2IKLhPm2Mysif2cK2Nkmb2j6X+zty-HBpVVdP04aIayOCvhb2WCz28KLfyO0a2HMFmvTZKjuyc5dZVeBhV3ei9ljb42AhBRWsSY5n3KICwXMwfEvVYom5ahtjMbw2W8bNrFfZM1yDRU-yHAD3ARMEIShRCHVWG9JlCSJ3A5ZwCK8DCA1TNtNB+DNh1GUsr05agzD4swokE9w4MWRIfTSIA */
+export default createMachine(
   {
     context: {
       parameters: {
@@ -45,6 +45,10 @@ createMachine(
                 actions: "updatePage",
                 target: "Loading",
               },
+              "Change exercise search": {
+                actions: "updateExercise",
+                target: "Loading",
+              },
             },
           },
           Loading: {
@@ -76,6 +80,12 @@ createMachine(
       }),
       updateSelectedTrack: assign({
         parameters: ({ parameters }, { track }) => ({ ...parameters, track }),
+      }),
+      updateExercise: assign({
+        parameters: ({ parameters }, { exercise }) => ({
+          ...parameters,
+          exercise,
+        }),
       }),
       updateOrder: assign({
         parameters: ({ parameters }, { order }) => ({ ...parameters, order }),
