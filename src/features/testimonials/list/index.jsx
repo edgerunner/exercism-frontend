@@ -11,20 +11,20 @@ export default function List({
   tracks,
   selectedTrack,
   onTrackChange,
-  search,
-  onSearch,
-  sort,
-  onSort,
+  exercise,
+  onExerciseChange,
+  order,
+  onOrderChange,
   loading,
 }) {
   const headerProps = {
     onTrackChange,
     tracks,
     selectedTrack,
-    search,
-    onSearch,
-    sort,
-    onSort,
+    exercise,
+    onExerciseChange,
+    order,
+    onOrderChange,
   };
   const footerProps = { onPageChange, current: currentPage, count: pageCount };
   return (

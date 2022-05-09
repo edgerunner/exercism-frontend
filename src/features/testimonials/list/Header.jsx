@@ -1,16 +1,16 @@
 import TrackSelector from "./TrackSelector";
-import SortSelector from "./SortSelector";
+import OrderSelector from "./OrderSelector";
 import { Input } from "/src/components";
-import { useState } from "react";
+import { DebouncingInput } from "/src/controllers";
 
 export default function Header({
   tracks,
   selectedTrack,
   onTrackChange,
-  onSearch,
-  search,
-  sort = "newest_first",
-  onSort,
+  exercise,
+  onExerciseChange,
+  order = "newest_first",
+  onOrderChange,
 }) {
   return (
     <header>
@@ -19,13 +19,17 @@ export default function Header({
         tracks={tracks}
         selected={selectedTrack}
       />
-      <Input
-        type="search"
-        value={search}
-        onChange={onSearch}
-        placeholder="Filter by exercise title"
-      />
-      <SortSelector sort={sort} onSort={onSort} />
+      <DebouncingInput onChange={onExerciseChange} defaultValue={exercise}>
+        {(value, handleInput) => (
+          <Input
+            type="search"
+            value={value}
+            onInput={({ target }) => handleInput(target.value)}
+            placeholder="Filter by exercise title"
+          />
+        )}
+      </DebouncingInput>
+      <OrderSelector order={order} onOrderChange={onOrderChange} />
     </header>
   );
 }

@@ -11,7 +11,7 @@ export default function TrackSelector({ tracks, selected, onSelect }) {
   const tracksWithAll = useMemo(() => {
     if (tracks.length < 2) return tracks;
     const allTracks = {
-      slug: "all-tracks",
+      slug: null,
       title: "All tracks",
       icon_url: ALL_TRACKS_ICON_URL,
       count: tracks.reduce((acc, track) => acc + track.count, 0),

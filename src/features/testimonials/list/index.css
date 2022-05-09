@@ -32,7 +32,7 @@ section.Testimonials > header > input[type=search] {
     flex-grow: 1;
 }
 
-section.Testimonials > header > button.SortSelector {
+section.Testimonials > header > button.OrderSelector {
     background-color: var(--element-background);
     font: inherit;
     border: none;
@@ -49,7 +49,7 @@ section.Testimonials > header > button.SortSelector {
     color: var(--label-secondary-color);
 }
 
-section.Testimonials > header > button.SortSelector > menu { 
+section.Testimonials > header > button.OrderSelector > menu { 
     width: 100%;
     box-sizing: border-box; 
     line-height: 32px;
