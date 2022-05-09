@@ -48,7 +48,7 @@ const machine = createMachine(
                 target: "Loading",
               },
               "Change exercise search": {
-                actions: "updateExercise",
+                actions: ["updateExercise", "resetPage"],
                 target: "Loading",
               },
             },
