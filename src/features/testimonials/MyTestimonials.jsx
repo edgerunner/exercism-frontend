@@ -1,23 +1,10 @@
 import List from "./list";
 import { Pill, Loading } from "/src/components";
-import { useMemo } from "react";
-import { useMachine } from "@xstate/react";
-import machine from "./MyTestimonials.machine.js";
+import useTestimonialsMachine from "./MyTestimonials.machine.js";
 import "./MyTestimonials.css";
 
 export default function MyTestimonials() {
-  const [state, send] = useMachine(machine);
-
-  const events = useMemo(
-    () => ({
-      onPageChange: (page) => send("Change page", { page }),
-      onTrackChange: (track) => send("Change track selection", { track }),
-      onExerciseChange: (exercise) =>
-        send("Change exercise search", { exercise }),
-      onOrderChange: (order) => send("Change ordering", { order }),
-    }),
-    [send]
-  );
+  const [state, events] = useTestimonialsMachine();
 
   if (state.matches("Loading"))
     return (
