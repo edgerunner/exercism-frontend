@@ -15,7 +15,7 @@ export function Default(...args) {
 
   return [
     [...pageGenerator()].map(({ page, current, spacer }) =>
-      spacer ? <>…</> : current ? <b>{page}</b> : <>{page}</>
+      spacer ? <>…</> : current ? <b>{page}</b> : <> {page} </>
     ),
   ];
 }
@@ -26,3 +26,16 @@ Default.args = {
   spread: 2,
   cap: 1,
 };
+
+export function FirstAndLast(...args) {
+  const pageGenerator = usePagination(...args);
+
+  return [
+    [...pageGenerator()].map(({ page, current, spacer, first, last }) => [
+      first ? <>&lt; </> : null,
+      spacer ? <>…</> : current ? <b>{page}</b> : <> {page} </>,
+      last ? <> &gt;</> : null,
+    ]),
+  ];
+}
+FirstAndLast.args = Default.args;

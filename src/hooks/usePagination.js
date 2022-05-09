@@ -8,7 +8,12 @@ export default function usePagination({ count, current, spread = 2, cap = 1 }) {
 
       while (next <= cap) {
         if (next > count) return;
-        yield { current: next === curr, page: next++ };
+        yield {
+          current: next === curr,
+          first: next === 1,
+          last: next === count,
+          page: next++,
+        };
       }
 
       if (next < curr - spread - 1) {
@@ -18,7 +23,7 @@ export default function usePagination({ count, current, spread = 2, cap = 1 }) {
 
       while (next <= curr + spread) {
         if (next > count) return;
-        yield { current: next === curr, page: next++ };
+        yield { current: next === curr, last: next === count, page: next++ };
       }
 
       if (next < count - cap) {
@@ -27,7 +32,7 @@ export default function usePagination({ count, current, spread = 2, cap = 1 }) {
       }
 
       while (next <= count) {
-        yield { current: next === curr, page: next++ };
+        yield { current: next === curr, last: next === count, page: next++ };
       }
     },
     [count, current, spread, cap]
