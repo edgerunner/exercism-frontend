@@ -4,7 +4,10 @@ describe("My Testimonals", () => {
     cy.get("section.Testimonials article").as("testimonials");
   });
 
-  it("should display 20 testimonials");
+  it("should display 20 testimonials", () => {
+    cy.get("@testimonials").should("have.length", 20);
+  });
+
   it("should display only testimonials of a selected track");
   it("should display ordered results");
   it("should filter by exercise");
