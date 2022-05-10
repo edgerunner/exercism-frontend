@@ -53,7 +53,20 @@ describe("My Testimonals", () => {
       });
   });
 
-  it("should filter by exercise");
+  it("should filter by exercise", () => {
+    cy.intercept({
+      method: "GET",
+      pathname: "/api/v2/hiring/testimonials",
+      query: { exercise: "bob" },
+    }).as("api-call");
+    cy.get("section.Testimonials header input").focus().type("bob");
+    cy.wait("@api-call");
+    cy.get("@testimonials")
+      .should("have.length", 20)
+      .each(($testimonial) => {
+        cy.wrap($testimonial).find("h6").contains("Bob");
+      });
+  });
 
   describe("pagination", () => {
     it("should display the next and previous pages");
