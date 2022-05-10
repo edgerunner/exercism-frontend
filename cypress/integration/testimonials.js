@@ -89,6 +89,12 @@ describe("My Testimonals", () => {
 
       cy.get(".PageNavigation button.left").should("be.disabled");
     });
+
+    it("next button should be disabled in the last page", () => {
+      cy.get(".PageNavigation > a:last-of-type").click();
+      cy.get(".PageNavigation button.right").should("be.disabled");
+    });
+
     it("should jump to the selected page");
     it("should reset the page on a new filter");
   });
