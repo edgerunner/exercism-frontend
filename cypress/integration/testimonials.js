@@ -20,9 +20,11 @@ describe("My Testimonals", () => {
         cy.contains("JavaScript").click();
       });
     cy.wait("@api-call");
-    cy.get("@testimonials").each(($testimonial) => {
-      cy.wrap($testimonial).get("h6").contains("JavaScript");
-    });
+    cy.get("@testimonials")
+      .should("have.length", 20)
+      .each(($testimonial) => {
+        cy.wrap($testimonial).find("h6").contains("JavaScript");
+      });
   });
 
   it("should display ordered results", () => {
