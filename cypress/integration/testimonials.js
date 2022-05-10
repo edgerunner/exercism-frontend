@@ -71,7 +71,24 @@ describe("My Testimonals", () => {
   });
 
   describe("pagination", () => {
-    it("should display the next and previous pages");
+    it("should display the next and previous pages", () => {
+      cy.intercept({
+        method: "GET",
+        pathname: "/api/v2/hiring/testimonials",
+      }).as("api-call");
+
+      cy.get(".PageNavigation button.right").click();
+
+      cy.wait("@api-call").its("request.url").should("contain", "page=2");
+      cy.get(".PageNavigation b").should("contain", "2");
+
+      cy.get(".PageNavigation button.left").click();
+
+      cy.wait("@api-call").its("request.url").should("contain", "page=1");
+      cy.get(".PageNavigation b").should("contain", "1");
+
+      cy.get(".PageNavigation button.left").should("be.disabled");
+    });
     it("should jump to the selected page");
     it("should reset the page on a new filter");
   });
