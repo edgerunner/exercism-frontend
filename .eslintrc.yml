@@ -6,6 +6,7 @@ extends:
   - plugin:react/recommended
   - plugin:react/jsx-runtime
   - plugin:storybook/recommended
+  - plugin:cypress/recommended
 parserOptions:
   ecmaFeatures:
     jsx: true
@@ -13,6 +14,7 @@ parserOptions:
   sourceType: module
 plugins:
   - react
+  - cypress
 rules:
   indent:
     - error
