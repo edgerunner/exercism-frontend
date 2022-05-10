@@ -1,14 +1,14 @@
-describe("My Testimonals", () => {
-  beforeEach(() => {
+describe("My Testimonals", function () {
+  beforeEach(function () {
     cy.visit("/");
     cy.get("section.Testimonials article").as("testimonials");
   });
 
-  it("should display 20 testimonials", () => {
+  it("should display 20 testimonials", function () {
     cy.get("@testimonials").should("have.length", 20);
   });
 
-  it("should display only testimonials of a selected track", () => {
+  it("should display only testimonials of a selected track", function () {
     cy.intercept({
       method: "GET",
       pathname: "/api/v2/hiring/testimonials",
@@ -27,7 +27,7 @@ describe("My Testimonals", () => {
       });
   });
 
-  it("should display ordered results", () => {
+  it("should display ordered results", function () {
     cy.intercept({
       method: "GET",
       pathname: "/api/v2/hiring/testimonials",
@@ -55,7 +55,7 @@ describe("My Testimonals", () => {
       });
   });
 
-  it("should filter by exercise", () => {
+  it("should filter by exercise", function () {
     cy.intercept({
       method: "GET",
       pathname: "/api/v2/hiring/testimonials",
@@ -70,8 +70,8 @@ describe("My Testimonals", () => {
       });
   });
 
-  describe("pagination", () => {
-    it("should display the next and previous pages", () => {
+  describe("pagination", function () {
+    it("should display the next and previous pages", function () {
       cy.intercept({
         method: "GET",
         pathname: "/api/v2/hiring/testimonials",
@@ -90,7 +90,7 @@ describe("My Testimonals", () => {
       cy.get(".PageNavigation button.left").should("be.disabled");
     });
 
-    it("next button should be disabled in the last page", () => {
+    it("next button should be disabled in the last page", function () {
       cy.get(".PageNavigation > a:last-of-type").click();
       cy.get(".PageNavigation button.right").should("be.disabled");
     });
