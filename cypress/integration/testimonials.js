@@ -25,7 +25,34 @@ describe("My Testimonals", () => {
     });
   });
 
-  it("should display ordered results");
+  it("should display ordered results", () => {
+    cy.intercept({
+      method: "GET",
+      pathname: "/api/v2/hiring/testimonials",
+      query: { order: "oldest_first" },
+    }).as("api-call");
+
+    cy.get("time")
+      .first()
+      .should("have.attr", "time")
+      .then(Date.parse)
+      .as("newest_time");
+
+    cy.get(".OrderSelector")
+      .click()
+      .within(() => {
+        cy.contains("least").click();
+      });
+    cy.wait("@api-call");
+    cy.get("time")
+      .first()
+      .should("have.attr", "time")
+      .then(Date.parse)
+      .should((oldestTime) => {
+        cy.get("@newest_time").should("be.gt", oldestTime);
+      });
+  });
+
   it("should filter by exercise");
 
   describe("pagination", () => {
