@@ -113,6 +113,22 @@ describe("My Testimonals", function () {
       cy.get(".PageNavigation a").contains("3").should("not.exist");
     });
 
-    it("should reset the page on a new filter");
+    it("should reset the page on a new filter", function () {
+      cy.intercept({
+        method: "GET",
+        pathname: "/api/v2/hiring/testimonials",
+      }).as("api-call");
+
+      cy.get(".PageNavigation a").contains("3").click();
+      cy.wait("@api-call").its("request.url").should("contain", "page=3");
+
+      cy.get(".TrackSelector")
+        .click()
+        .within(() => {
+          cy.contains("Rust").click();
+        });
+
+      cy.wait("@api-call").its("request.url").should("not.contain", "page=");
+    });
   });
 });
