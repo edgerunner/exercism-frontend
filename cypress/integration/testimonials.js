@@ -95,7 +95,24 @@ describe("My Testimonals", function () {
       cy.get(".PageNavigation button.right").should("be.disabled");
     });
 
-    it("should jump to the selected page");
+    it("should jump to the selected page", function () {
+      cy.intercept({
+        method: "GET",
+        pathname: "/api/v2/hiring/testimonials",
+      }).as("api-call");
+
+      cy.get(".PageNavigation a").contains("3").click();
+      cy.wait("@api-call").its("request.url").should("contain", "page=3");
+
+      cy.get(".PageNavigation a").contains("5").click();
+      cy.wait("@api-call").its("request.url").should("contain", "page=5");
+
+      cy.get(".PageNavigation a").contains("7").click();
+      cy.wait("@api-call").its("request.url").should("contain", "page=7");
+
+      cy.get(".PageNavigation a").contains("3").should("not.exist");
+    });
+
     it("should reset the page on a new filter");
   });
 });
