@@ -14,9 +14,11 @@ export function Default(...args) {
   const pageGenerator = usePagination(...args);
 
   return [
-    [...pageGenerator()].map(({ page, current, spacer }) =>
-      spacer ? <>…</> : current ? <b>{page}</b> : <> {page} </>
-    ),
+    [...pageGenerator()].map(({ page, current, spacer, key }) => (
+      <span key={key}>
+        {spacer ? <>…</> : current ? <b>{page}</b> : <> {page} </>}
+      </span>
+    )),
   ];
 }
 

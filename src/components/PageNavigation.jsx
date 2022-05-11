@@ -15,11 +15,13 @@ export default function PageNavigation({ count, current, onPageChange }) {
       </Button>
       {[...pageGenerator()].map((p) =>
         p.spacer ? (
-          <span className="spacer">⋯</span>
+          <span className="spacer" key={p.key}>
+            ⋯
+          </span>
         ) : p.current ? (
-          <b key={p.page}>{p.page}</b>
+          <b key={p.key}>{p.page}</b>
         ) : (
-          <a key={p.page} onClick={() => onPageChange(p.page)}>
+          <a key={p.key} onClick={() => onPageChange(p.page)}>
             {p.page}
           </a>
         )

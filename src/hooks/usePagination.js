@@ -12,27 +12,38 @@ export default function usePagination({ count, current, spread = 2, cap = 1 }) {
           current: next === curr,
           first: next === 1,
           last: next === count,
+          key: next,
           page: next++,
         };
       }
 
       if (next < curr - spread - 1) {
-        yield { spacer: true };
+        yield { spacer: true, key: -1 };
         next = Math.max(next, curr - spread);
       }
 
       while (next <= curr + spread) {
         if (next > count) return;
-        yield { current: next === curr, last: next === count, page: next++ };
+        yield {
+          current: next === curr,
+          last: next === count,
+          key: next,
+          page: next++,
+        };
       }
 
       if (next < count - cap) {
-        yield { spacer: true };
+        yield { spacer: true, key: -2 };
         next = Math.max(next, count - cap + 1);
       }
 
       while (next <= count) {
-        yield { current: next === curr, last: next === count, page: next++ };
+        yield {
+          current: next === curr,
+          last: next === count,
+          key: next,
+          page: next++,
+        };
       }
     },
     [count, current, spread, cap]
