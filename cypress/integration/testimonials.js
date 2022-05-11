@@ -130,5 +130,29 @@ describe("My Testimonals", function () {
 
       cy.wait("@api-call").its("request.url").should("not.contain", "page=");
     });
+
+    it("should keep track selection and exercise filter on page changes", function () {
+      cy.intercept({
+        method: "GET",
+        pathname: "/api/v2/hiring/testimonials",
+      }).as("api-call");
+
+      cy.get(".TrackSelector")
+        .click()
+        .within(() => {
+          cy.contains("Rust").click();
+        });
+      cy.wait("@api-call");
+
+      cy.get("section.Testimonials header input").focus().type("sub");
+      cy.wait("@api-call");
+
+      cy.get(".PageNavigation a").contains("2").click();
+      cy.wait("@api-call")
+        .its("request.url")
+        .should("contain", "track=rust", "same track")
+        .and("contain", "exercise=sub", "same exercise")
+        .and("contain", "page=2", "new page");
+    });
   });
 });
