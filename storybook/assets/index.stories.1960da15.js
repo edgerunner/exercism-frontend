@@ -1,0 +1,10 @@
+import{A as e}from"./Avatar.d0721344.js";import"./Button.fcc31c49.js";import"./Dropdown.ce0b39a3.js";import"./Input.39416d34.js";import"./Loading.4a602b0a.js";import"./PageNavigation.4ae08f45.js";import"./Pill.8b72d296.js";import"./TimeAgo.127284d2.js";import"./TrackIcon.8baf42f0.js";import{a as n,j as i}from"./jsx-runtime.f0c22839.js";import"./index.17e183eb.js";import"./useDebounce.71098d6d.js";import"./usePagination.a0793e72.js";function t(){return n("nav",{id:"SiteNavigation",children:[i("a",{href:"#",id:"logo-home",children:"Exercism"}),i("a",{href:"#",id:"nav-dashboard",className:"current",children:"Dashboard"}),i("a",{href:"#",id:"nav-tracks",children:"Tracks"}),i("a",{href:"#",id:"nav-mentoring",children:"Mentoring"}),i("a",{href:"#",id:"nav-contribute",children:"Contribute"}),i("a",{href:"#",id:"badge-comments",className:"new",title:"Comments",children:"\xA0"}),i("a",{href:"#",id:"badge-updates",title:"Updates",children:"\xA0"}),i("a",{href:"#",id:"notifications","data-new":"2",title:"Notifications",children:"\xA0"}),i("a",{href:"#",id:"reputation",className:"new",title:"Reputation",children:"300K"}),i("a",{href:"#",id:"profile",title:"Profile",children:i(e,{src:"https://avatars.githubusercontent.com/u/286476?v=4"})}),i("button",{id:"nav-menu",title:"Navigation menu",children:"\xA0"})]})}t.__docgenInfo={description:"",methods:[],displayName:"SiteNavigation"};var N={parameters:{storySource:{source:`import SiteNavigation from "./";
+
+export default {
+  title: "Features/SiteNavigation",
+  component: SiteNavigation,
+};
+
+export const Dummy = () => <SiteNavigation />;
+;Dummy.__docgenInfo={"description":"","methods":[],"displayName":"Dummy"}`,locationsMap:{dummy:{startLoc:{col:21,line:8},endLoc:{col:45,line:8},startBody:{col:21,line:8},endBody:{col:45,line:8}}}}},title:"Features/SiteNavigation",component:t};const o=()=>i(t,{});o.__docgenInfo={description:"",methods:[],displayName:"Dummy"};const x=["Dummy"];export{o as Dummy,x as __namedExportsOrder,N as default};
+//# sourceMappingURL=index.stories.1960da15.js.map

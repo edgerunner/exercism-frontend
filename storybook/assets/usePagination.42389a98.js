@@ -1,2 +1,0 @@
-import{r as s}from"./index.17e183eb.js";function h({count:r,current:l,spread:t=2,cap:a=1}){return s.exports.useCallback(function*(){let e=1;const i=Math.max(1,Math.min(r,l));for(;e<=a;){if(e>r)return;yield{current:e===i,first:e===1,last:e===r,page:e++}}for(e<i-t-1&&(yield{spacer:!0},e=Math.max(e,i-t));e<=i+t;){if(e>r)return;yield{current:e===i,last:e===r,page:e++}}for(e<r-a&&(yield{spacer:!0},e=Math.max(e,r-a+1));e<=r;)yield{current:e===i,last:e===r,page:e++}},[r,l,t,a])}export{h as u};
-//# sourceMappingURL=usePagination.42389a98.js.map
