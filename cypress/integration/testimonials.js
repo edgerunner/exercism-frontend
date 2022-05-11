@@ -1,26 +1,27 @@
 describe("My Testimonals", function () {
+  const testimonials = "section.Testimonials article";
+  const api = {
+    method: "GET",
+    pathname: "/api/v2/hiring/testimonials",
+  };
+
   beforeEach(function () {
     cy.visit("/");
-    cy.get("section.Testimonials article").as("testimonials");
   });
 
   it("should display 20 testimonials", function () {
-    cy.get("@testimonials").should("have.length", 20);
+    cy.get(testimonials).should("have.length", 20);
   });
 
   it("should display only testimonials of a selected track", function () {
-    cy.intercept({
-      method: "GET",
-      pathname: "/api/v2/hiring/testimonials",
-      query: { track: "javascript" },
-    }).as("api-call");
+    cy.intercept({ ...api, query: { track: "javascript" } }).as("api-call");
     cy.get(".TrackSelector")
       .click()
       .within(() => {
         cy.contains("JavaScript").click();
       });
     cy.wait("@api-call");
-    cy.get("@testimonials")
+    cy.get(testimonials)
       .should("have.length", 20)
       .each(($testimonial) => {
         cy.wrap($testimonial).find("h6").contains("JavaScript");
@@ -28,11 +29,7 @@ describe("My Testimonals", function () {
   });
 
   it("should display ordered results", function () {
-    cy.intercept({
-      method: "GET",
-      pathname: "/api/v2/hiring/testimonials",
-      query: { order: "oldest_first" },
-    }).as("api-call");
+    cy.intercept({ ...api, query: { order: "oldest_first" } }).as("api-call");
 
     cy.get("time")
       .first()
@@ -56,14 +53,10 @@ describe("My Testimonals", function () {
   });
 
   it("should filter by exercise", function () {
-    cy.intercept({
-      method: "GET",
-      pathname: "/api/v2/hiring/testimonials",
-      query: { exercise: "bob" },
-    }).as("api-call");
+    cy.intercept({ ...api, query: { exercise: "bob" } }).as("api-call");
     cy.get("section.Testimonials header input").focus().type("bob");
     cy.wait("@api-call");
-    cy.get("@testimonials")
+    cy.get(testimonials)
       .should("have.length", 20)
       .each(($testimonial) => {
         cy.wrap($testimonial).find("h6").contains("Bob");
@@ -72,10 +65,7 @@ describe("My Testimonals", function () {
 
   describe("pagination", function () {
     beforeEach(function () {
-      cy.intercept({
-        method: "GET",
-        pathname: "/api/v2/hiring/testimonials",
-      }).as("api-call");
+      cy.intercept(api).as("api-call");
     });
 
     it("should display the next and previous pages", function () {
