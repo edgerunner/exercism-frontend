@@ -71,12 +71,14 @@ describe("My Testimonals", function () {
   });
 
   describe("pagination", function () {
-    it("should display the next and previous pages", function () {
+    beforeEach(function () {
       cy.intercept({
         method: "GET",
         pathname: "/api/v2/hiring/testimonials",
       }).as("api-call");
+    });
 
+    it("should display the next and previous pages", function () {
       cy.get(".PageNavigation button.right").click();
 
       cy.wait("@api-call").its("request.url").should("contain", "page=2");
@@ -96,11 +98,6 @@ describe("My Testimonals", function () {
     });
 
     it("should jump to the selected page", function () {
-      cy.intercept({
-        method: "GET",
-        pathname: "/api/v2/hiring/testimonials",
-      }).as("api-call");
-
       cy.get(".PageNavigation a").contains("3").click();
       cy.wait("@api-call").its("request.url").should("contain", "page=3");
 
@@ -114,11 +111,6 @@ describe("My Testimonals", function () {
     });
 
     it("should reset the page on a new filter", function () {
-      cy.intercept({
-        method: "GET",
-        pathname: "/api/v2/hiring/testimonials",
-      }).as("api-call");
-
       cy.get(".PageNavigation a").contains("3").click();
       cy.wait("@api-call").its("request.url").should("contain", "page=3");
 
@@ -132,11 +124,6 @@ describe("My Testimonals", function () {
     });
 
     it("should keep track selection and exercise filter on page changes", function () {
-      cy.intercept({
-        method: "GET",
-        pathname: "/api/v2/hiring/testimonials",
-      }).as("api-call");
-
       cy.get(".TrackSelector")
         .click()
         .within(() => {
